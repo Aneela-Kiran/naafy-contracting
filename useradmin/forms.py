@@ -2,6 +2,7 @@ from django import forms
 from services.models import Service, Project, ProjectImages, GeneralContracting
 from contact.models import Reviews, ContactDetails
 from blog.models import Blog, BlogImage
+from aboutus.models import About
 from .models import Profile
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
@@ -422,4 +423,42 @@ class ContactDetailsForm(forms.ModelForm):
                 self.add_error('phone_no', "Phone number must be between 9 and 20 characters long.")
 
         return cleaned_data
-    
+
+class AboutUsForm(forms.ModelForm):
+    description = forms.CharField(
+        widget=forms.TextInput(attrs={"placeholder": "Enter About Description", "class": "form-control"}),
+        max_length=150,  # Maximum length validation
+        error_messages={
+            'required': 'About Description is required',
+            'max_length': 'Service Name cannot exceed 150 characters',
+        }
+    )
+
+    company_info = forms.CharField(
+        widget=forms.Textarea(attrs={"placeholder": "Enter About Company Info", "class": "form-control"}),
+        error_messages={
+            'required': 'About Description is required',
+        }
+    )
+
+    mission = forms.CharField(
+        widget=forms.TextInput(attrs={"placeholder": "Enter Our Mission", "class": "form-control"}),
+        max_length=250,  # Maximum length validation
+        error_messages={
+            'required': 'About Description is required',
+            'max_length': 'Mission cannot exceed 250 characters',
+        }
+    )
+
+    vision = forms.CharField(
+        widget=forms.TextInput(attrs={"placeholder": "Enter Our Vision", "class": "form-control"}),
+        max_length=250,  # Maximum length validation
+        error_messages={
+            'required': 'About Description is required',
+            'max_length': 'Service Name cannot exceed 250 characters',
+        }
+    )
+
+    class Meta:
+        model = About
+        fields = "__all__"

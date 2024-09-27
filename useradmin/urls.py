@@ -27,6 +27,9 @@ urlpatterns = [
     path("delete-email/<int:id>", views.delete_email, name="delete-email"),
     path("email/<int:id>/responded/", views.mark_as_responded,name="mark-as-responded"),
 
+    #About us Section
+    path("edit-about-us/", views.about_us_view, name="about-us"),
+
     #Contact Section
     path("contacts/", views.contact_view, name="contact-list"),
     path("edit-contact-details/", views.edit_contact_details, name="contact-details"),

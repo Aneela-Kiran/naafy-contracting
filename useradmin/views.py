@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from contact.models import Contact, Email, Reviews, ContactDetails
 from services.models import Service, Project, ProjectImages, GeneralContracting, BulletPoints
 from blog.models import Blog, BlogImage, BlogReply
-from .forms import ServiceForm, ProjectImagesForm, ProjectForm, GeneralServiceForm, ReviewsForm, BlogImagesForm, BlogForm, ProfileForm, ContactDetailsForm
+from aboutus.models import About
+from .forms import ServiceForm, ProjectImagesForm, ProjectForm, GeneralServiceForm, ReviewsForm, BlogImagesForm, BlogForm, ProfileForm, ContactDetailsForm, AboutUsForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout, login, authenticate, get_user_model
 from django.contrib.auth.hashers import check_password
@@ -576,3 +577,17 @@ def edit_contact_details(request):
     else:
         form = ContactDetailsForm(instance=contact_details)
     return render(request, "useradmin/edit-contact-details.html", {"form":form})
+
+''' *******************Contact Details Section******************************* '''
+def about_us_view(request):
+    about_us = About.objects.all().first()
+    if request.method == "POST":
+        form = AboutUsForm(request.POST, instance=about_us)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Updated Successfully!")
+            return redirect("useradmin:about-us")
+        messages.warning(request, "Please Try Again!")
+    else:
+        form = AboutUsForm(instance=about_us)
+    return render(request, "useradmin/about-us.html", {"form" : form})
