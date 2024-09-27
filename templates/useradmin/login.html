@@ -1,0 +1,44 @@
+{% extends "useradmin/base.html" %}    
+    {% load static %}
+        {% block content %}
+            <section class="content-main mt-80 mb-80">
+                <div class="card mx-auto card-login">
+                    <div class="card-body">
+                        <div class="messagesTime">
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div class="alert alert-{{message.tags}}">
+                                        <strong>{{ message }}</strong>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                            {% if request.GET.next %}
+                                <div class="alert alert-warning" role="alert">
+                                    Please Login First to access this page.
+                                </div>
+                            {% endif %}
+                        </div>
+                        <h4 class="card-title mb-4">Sign in</h4>
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <input class="form-control" name="username" placeholder="Username" type="text" required />
+                            </div>
+                            <!-- form-group// -->
+                            <div class="mb-3">
+                                <input class="form-control" name="password" placeholder="Password" type="password" required />
+                            </div>
+                            <!-- form-group// -->
+                            <!-- form-group form-check .// -->
+                            <div class="form-group mb-10 text-end">
+                                <button type="submit" class="btn button-hover-effect">Login</button>
+                            </div>
+                            <div class="login_footer form-group mb-10">
+                                <a class="text-muted" href="{% url "useradmin:admin_password_reset" %}">Forgot password?</a>
+                            </div>
+                            <!-- form-group// -->
+                        </form>
+                    </div>
+                </div>
+            </section>
+        {% endblock content %}

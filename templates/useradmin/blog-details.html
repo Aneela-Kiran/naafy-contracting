@@ -1,0 +1,139 @@
+{% extends "useradmin/base.html" %}
+{% load static %}
+{% block content %}
+    <section class="content-main">
+        <div class="messagesTime">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{message.tags}}">
+                        <strong>{{ message }}</strong>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+
+        <div class="content-header">
+            <div>
+                <h2 class="content-title card-title">Blog Details</h2>
+                <p>Details for Blog: {{ blogs.title }}</p>
+            </div>
+            <a href="{% url 'useradmin:blogs-list' %}" class="btn btn-lg ms-auto">Click to go back to Blog List</a>
+        </div>
+
+        <div class="card">
+            <header class="card-header">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-6 mb-lg-0 mb-15">
+                        <small class="text-muted">Blog Id: {{ blogs.id }}</small>
+                    </div>
+                </div>
+            </header>
+            <!-- card-header end// -->
+
+            <div class="card-body">
+                <div class="row mb-50 mt-20 order-info-wrap">
+                    <div class="col-md-6">
+                        <article class="icontext align-items-start">
+                            <span class="icon icon-sm rounded-circle bg-primary-light">
+                                <i class="text-primary fas fa-heading"></i>
+                            </span>
+                            <div class="text">
+                                <h6 class="mb-1">Blog Title</h6>
+                                <p class="mb-1">
+                                    {{ blogs.title }}<br />
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- col// -->
+                    <div class="col-md-6">
+                        <article class="icontext align-items-start">
+                            <span class="icon icon-sm rounded-circle bg-primary-light">
+                                <i class="text-primary material-icons md-description"></i>
+                            </span>
+                            <div class="text">
+                                <h6 class="mb-1">Blog Content</h6>
+                                <p class="mb-1">
+                                    {{ blogs.content|linebreaksbr }}<br />
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- col// -->
+                </div>
+                <!-- row // -->
+
+                <div class="row mb-50 mt-20 order-info-wrap">
+                    <div class="col-md-4">
+                        <article class="icontext align-items-start">
+                            <span class="icon icon-sm rounded-circle bg-primary-light">
+                                <i class="text-primary fas fa-quote-left"></i>
+                            </span>
+                            <div class="text">
+                                <h6 class="mb-1">Quote</h6>
+                                <p class="mb-1">
+                                    {{ blogs.quotes }}<br />
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- col// -->
+                    <div class="col-md-4">
+                        <article class="icontext align-items-start">
+                            <span class="icon icon-sm rounded-circle bg-primary-light">
+                                <i class="text-primary fas fa-pager"></i>
+                            </span>
+                            <div class="text">
+                                <h6 class="mb-4">Home Page Display</h6>
+                                <p class="mb-2">
+                                    {% if blogs.latest %}
+                                        <p class="bg-primary badge">Displayed at home Page</p>
+                                    {% else %}
+                                        <p class="bg-danger badge">Not Displayed</p>
+                                    {% endif %}<br />
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- col// -->
+                    <div class="col-md-4">
+                        <article class="icontext align-items-start">
+                            <span class="icon icon-sm rounded-circle bg-primary-light">
+                                <i class="text-primary fas fa-image"></i>
+                            </span>
+                            <div class="text">
+                                <h6 class="mb-4">Featured Image</h6>
+                                <img src="{{blogs.image.url}}" alt="">
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <!-- row // -->
+
+                <!-- Blog Image -->
+                <div class="row">
+                    <div class="col-lg-6">
+                        <article class="icontext align-items-start">
+                            <span class="icon icon-sm rounded-circle bg-primary-light">
+                                <i class="text-primary fas fa-images"></i>
+                            </span>
+                            <div class="text">
+                                <h6 class="mb-4">Blog Images</h6>
+                                <div class="row mb-1">
+                                    {% for image in images %}
+                                        <div class="col-6">
+                                            <img src="{{ image.image.url }}" alt="Blogs Image" class="img-fluid">
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <!-- row // -->
+            </div>
+            <!-- card-body end// -->
+        </div>
+        <!-- card end// -->
+    </section>
+{% endblock content %}

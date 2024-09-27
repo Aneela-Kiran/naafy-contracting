@@ -1,0 +1,106 @@
+/* ----------------
+    Whatsapp Button
+-------------------*/
+
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-button img {
+    width: 100%;
+    height: 100%;
+}
+
+.whatsapp-button:hover {
+    transform: scale(1.1); /* Makes the button pop up slightly */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adds a larger shadow for emphasis */
+}
+
+/* ----------------
+    Service Image Hover
+-------------------*/
+
+.project__item {
+    margin-bottom: 50px;
+    text-align: center;
+    overflow: hidden; /* Ensures the image stays within the boundaries */
+}
+
+.project__item img {
+    width: 100%;
+    margin-bottom: 26px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease; /* Smooth transition for hover effect */
+}
+
+.project__item img:hover {
+    transform: scale(1.1); /* Zooms in the image on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adds shadow for depth */
+}
+
+/* ----------------
+    General Image hover
+-------------------*/
+
+/* General class for image hover effect */
+.hover-effect {
+    overflow: hidden; /* Ensures the image stays within the boundaries */
+}
+
+.hover-effect img {
+    width: 100%;
+    transition: transform 0.5s ease, box-shadow 0.5s ease; /* Smooth transition for hover effect */
+}
+
+.hover-effect img:hover {
+    transform: scale(1.1); /* Zooms in the image on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adds shadow for depth */
+}
+
+/* ----------------
+    General Image hover
+-------------------*/
+
+/* General button styles */
+.button-hover-effect {
+    background-color: #ADD8E6; /* Initial background color */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.4s ease-in-out, transform 0.3s ease; /* Smooth transition for background and scale */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover effect with background transition and pop-up */
+.button-hover-effect:hover {
+    background-color: #6F9ACB;; /* Hover background color */
+    transform: translateY(-5px); /* Pop-up effect */
+}
+
+/* Additional effect for smooth background transition from left to right */
+.button-hover-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #6F9ACB;
+    transition: left 0.4s ease;
+    z-index: -1;
+}
+
+.button-hover-effect:hover::before {
+    left: 0;
+}

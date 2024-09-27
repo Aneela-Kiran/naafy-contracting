@@ -1,0 +1,77 @@
+{% extends "useradmin/base.html" %}    
+    {% load static %}
+        {% block content %} 
+            <section class="content-main">
+                <div class="content-header">
+                    <div>
+                        <h2 class="content-title card-title">Blog Replies List</h2>
+                        <p>Below are the Blog Replies of Customers!!</p>
+                        <div class="messagesTime">
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div class="alert alert-{{message.tags}}">
+                                        <strong>{{ message }}</strong>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <header class="card-header">
+                        <h4 class="card-title">Blog Replies List</h4>
+                    </header>
+                    <!-- card-header end// -->
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <div class="table-responsive">
+                                <table class="table align-middle table-nowrap mb-0">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th class="align-middle" scope="col">ID</th>
+                                            <th class="align-middle" scope="col">Name</th>
+                                            <th class="align-middle" scope="col">Email</th>
+                                            <th class="align-middle" scope="col">Phone Number</th>
+                                            <th class="align-middle" scope="col">Reply</th>
+                                            <th class="align-middle" scope="col">Received At</th>
+                                            <th class="align-middle" scope="col">Blog</th>
+                                            <th class="align-middle" scope="col">Response</th>
+                                            <th class="align-middle" scope="col">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for r in replies %}
+                                            <tr>
+                                                <td><a href="{% url "useradmin:reply-detail" r.id %}" class="fw-bold">#{{r.id}}</a></td>
+                                                <td>{{r.name}}</td>
+                                                <td>{{r.email}}</td>
+                                                <td>{{r.phone_no}}</td>
+                                                <td>{{r.reply|truncatechars:30}}</td>
+                                                <td>{{r.sent_at}}</td>
+                                                <td>{{r.blog.title|truncatechars:10}}</td>
+                                                <td>
+                                                    {% if r.response %}
+                                                        <span class="badge bg-success">DONE</span>
+                                                    {% else %}
+                                                        <form method="POST" action="{% url "useradmin:reply-response" r.id %}">
+                                                            {% csrf_token %}
+                                                            <button type="submit" class="btn btn-warning">Mark as Read</button>
+                                                        </form>
+                                                    {% endif %}
+                                                </td>
+                                                <td>
+                                                    <a href="{% url 'useradmin:delete-reply' r.id %}" class="btn btn-sm d-inline"><i class="fas fa-trash"></i></a>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- table-responsive end// -->
+                    </div>
+                    <!-- card-body end// -->
+                </div>
+                <!-- card end// -->
+            </section>
+{% endblock content %}

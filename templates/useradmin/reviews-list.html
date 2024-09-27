@@ -1,0 +1,100 @@
+{% extends "useradmin/base.html" %}    
+    {% load static %}
+        {% block content %} 
+            <section class="content-main">
+                <div class="content-header">
+                    <div>
+                        <h2 class="content-title card-title">Reviews List</h2>
+                        <p>Following are the Reviews</p>
+                        <div class="messagesTime">
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div class="alert alert-{{message.tags}}">
+                                        <strong>{{ message }}</strong>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div>
+                        <a href="{% url "useradmin:add-reviews" %}" class="btn button-hover-effect rounded"><i class="material-icons md-edit mr-10"></i>Create new</a>
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <header class="card-header">
+                        <h4 class="card-title">Reviews List</h4>
+                        <div class="ms-auto">
+                            {% if not reviews %}
+                                <h3>No Reviews Yet!</h3>
+                            {% endif %}
+                        </div>
+                    </header>
+                    <!-- card-header end// -->
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <div class="table-responsive">
+                                <table class="table align-middle table-nowrap mb-0">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th class="align-middle" scope="col">ID</th>
+                                            <th class="align-middle" scope="col">User Name</th>
+                                            <th class="align-middle" scope="col">Review</th>
+                                            <th class="align-middle" scope="col">User Image</th>
+                                            <th class="align-middle" scope="col">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for r in reviews %}
+                                            <tr>
+                                                <td><a href="{% url "useradmin:review-detail" r.id %}" class="fw-bold">#{{r.id}}</a></td>
+                                                <td>{{r.user_name}}</td>
+                                                <td>{{r.review|truncatechars:100}}</td>
+                                                <td>
+                                                    {% if r.user_image %}
+                                                        <img src="{{ r.user_image.url }}" style="width:50px; height:30px" alt="User Image">
+                                                    {% else %}
+                                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ3Sz275KZaTeZyS-thzhD6U9VIkfO8c-WPA&s" style="width:50px; height:30px" alt="Default User Image">
+                                                    {% endif %}
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <a href="{% url "useradmin:edit-review" r.id %}" class="btn btn-sm d-inline"><i class="fas fa-pen"></i></a>
+                                                        <a href="{% url "useradmin:delete-review" r.id %}" class="btn btn-sm d-inline"><i class="fas fa-trash"></i></a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- table-responsive end// -->
+                        {% if reviews %}
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="blog__pagination">
+                                        {% if reviews.has_previous %}
+                                            <a href="?page={{ reviews.previous_page_number }}"><i class="fa fa-angle-double-left"></i></a>
+                                        {% endif %}
+                            
+                                        {% for num in reviews.paginator.page_range %}
+                                            {% if reviews.number == num %}
+                                                <a href="?page={{ num }}" class="active">{{ num }}</a>
+                                            {% else %}
+                                                <a href="?page={{ num }}">{{ num }}</a>
+                                            {% endif %}
+                                        {% endfor %}
+                            
+                                        {% if reviews.has_next %}
+                                            <a href="?page={{ reviews.next_page_number }}"><i class="fa fa-angle-double-right"></i></a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <!-- card-body end// -->
+                </div>
+                <!-- card end// -->
+            </section>
+{% endblock content %}

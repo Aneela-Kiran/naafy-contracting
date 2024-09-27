@@ -1,0 +1,98 @@
+{% extends "partials/base.html" %}
+{% load static %}
+{% block content %}
+    <!-- Breadcrumb Section Begin -->
+    <div class="breadcrumb-option spad set-bg" data-setbg="{% static 'img/clouds.jpg' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>Projects Details</h2>
+                        <div class="breadcrumb__links">
+                            <a href="{% url "home:home" %}">Home</a>
+                            <a href="{% url "services:services" %}">Services</a>
+                            <span>Projects Details</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb Section End -->
+
+    <!-- Project Details Section Begin -->
+    <section class="project-details spad">
+        <div class="container">
+            {% if not projects %}
+                <h3>Sorry! No Projects Are Available at the Moment!</h3>
+            {% else %}
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="row">
+                            <!-- First column for the first three images -->
+                            <div class="col-lg-6 col-md-6 col-sm-6 hover-effect">
+                                {% for image in project_images|slice:":3" %}
+                                    <img src="{{ image.image.url }}" alt="" class="img-fluid">
+                                {% endfor %}
+                            </div>
+                            
+                            <!-- Second column for the next three images -->
+                            <div class="col-lg-6 col-md-6 col-sm-6 hover-effect">
+                                {% for image in project_images|slice:"3:6" %}
+                                    <img src="{{ image.image.url }}" alt="" class="img-fluid">
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="project__sidebar">
+                            {% for p in projects %}
+                                <div class="project__sidebar__about">
+                                    <h2>{{p.title}}</h2>
+                                    <p>{{p.description}}</p>
+                                </div>
+                                <div class="product__details__widget">
+                                    <div class="product__details__widget__item">
+                                        <span>Clients:</span>
+                                        <h4>{{p.client}}</h4>
+                                    </div>
+                                    <div class="product__details__widget__item">
+                                        <span>Location:</span>
+                                        <p>{{p.address}}</p>
+                                    </div>
+                                    <div class="product__details__widget__item">
+                                        <span>Location:</span>
+                                        <p>{{p.location}}</p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="blog__pagination">
+                            {% if projects.has_previous %}
+                                <a href="?page={{ projects.previous_page_number }}"><i class="fa fa-angle-double-left"></i></a>
+                            {% endif %}
+                
+                            {% for num in projects.paginator.page_range %}
+                                {% if projects.number == num %}
+                                    <a href="?page={{ num }}" class="active">{{ num }}</a>
+                                {% else %}
+                                    <a href="?page={{ num }}">{{ num }}</a>
+                                {% endif %}
+                            {% endfor %}
+                
+                            {% if projects.has_next %}
+                                <a href="?page={{ projects.next_page_number }}"><i class="fa fa-angle-double-right"></i></a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </section>
+    <!-- Project Details Section End -->
+
+    {% endblock content %}

@@ -1,0 +1,140 @@
+{% extends "useradmin/base.html" %}
+{% load static %}
+{% block content %}
+    <section class="content-main">
+        <div class="messagesTime">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{message.tags}}">
+                        <strong>{{ message }}</strong>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+
+        <div class="content-header">
+            <div>
+                <h2 class="content-title card-title">Reply Details</h2>
+                <p>Reply From: {{ reply.name }}</p>
+                <p>Received At: {{ reply.sent_at }}</p>
+            </div>
+            <a href="{% url 'useradmin:blog-reply-list' %}" class="btn btn-lg ms-auto">Click to go back to Reply List</a>
+        </div>
+
+        <div class="card">
+            <header class="card-header">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-6 mb-lg-0 mb-15">
+                        <small class="text-muted">Reply-ID: {{ reply.id }}</small>
+                    </div>
+                </div>
+            </header>
+            <!-- card-header end// -->
+
+            <div class="card-body">
+                <div class="row mb-50 mt-20 order-info-wrap">
+                    <div class="col-md-4">
+                        <article class="icontext align-items-start">
+                            <span class="icon icon-sm rounded-circle bg-primary-light">
+                                <i class="text-primary fas fa-user"></i>
+                            </span>
+                            <div class="text">
+                                <h6 class="mb-1">Person Name</h6>
+                                <p class="mb-1">
+                                    {{ reply.name }}<br />
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- col// -->
+                    <div class="col-md-4">
+                        <article class="icontext align-items-start">
+                            <span class="icon icon-sm rounded-circle bg-primary-light">
+                                <i class="text-primary fas fa-comment-alt"></i>
+                            </span>
+                            <div class="text">
+                                <h6 class="mb-1">Reply</h6>
+                                <p class="mb-1">
+                                    {{ reply.reply }}<br />
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- col// -->
+                    
+                    <div class="col-md-4">
+                        <article class="icontext align-items-start">
+                            <span class="icon icon-sm rounded-circle bg-primary-light">
+                                <i class="text-primary fas fa-blog"></i>
+                            </span>
+                            <div class="text">
+                                <h6 class="mb-1">Blog Title</h6>
+                                <p class="mb-1">
+                                    {{ reply.blog.title }}<br />
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- col// -->
+                </div>
+                <!-- row // -->
+
+                <div class="row mb-50 mt-20 order-info-wrap">
+                    <div class="col-md-6">
+                        <article class="icontext align-items-start">
+                            <span class="icon icon-sm rounded-circle bg-primary-light">
+                                <i class="text-primary fas fa-solid fa-comment"></i>
+                            </span>
+                            <div class="text">
+                                <h6 class="mb-1">Email</h6>
+                                <p class="mb-1">
+                                    {{ reply.email }}<br />
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- col// -->
+                    <div class="col-md-6">
+                        <article class="icontext align-items-start">
+                            <span class="icon icon-sm rounded-circle bg-primary-light">
+                                <i class="text-primary fas fa-phone-alt"></i>
+                            </span>
+                            <div class="text">
+                                <h6 class="mb-1">Phone Number</h6>
+                                <p class="mb-1">
+                                    {{ reply.phone_no }}<br />
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- col// -->
+                </div>
+                <!-- row // -->
+
+                <!-- Response Image -->
+                <div class="row">
+                    <div class="col-lg-6">
+                        <article class="icontext align-items-start">
+                            <span class="icon icon-sm rounded-circle bg-primary-light">
+                                <i class="text-primary fas fa-minus-circle"></i>
+                            </span>
+                            <div class="text">
+                                <h6 class="mb-1">Response Status</h6>
+                                <div class="row mb-1">
+                                    {% if reply.response %}
+                                        <span class="badge bg-success">Done</span>
+                                    {% else %}
+                                        <span class="badge bg-error">Not Responded</span>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <!-- row // -->
+            </div>
+            <!-- card-body end// -->
+        </div>
+        <!-- card end// -->
+    </section>
+{% endblock content %}

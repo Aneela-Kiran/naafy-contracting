@@ -1,0 +1,92 @@
+{% extends "useradmin/base.html" %}    
+    {% load static %}
+        {% block content %}    
+            <section class="content-main">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="content-header">
+                                <h2 class="content-title">Add New Project</h2>
+                                <a href="{% url 'useradmin:project-list' %}" class="btn btn-lg">Click to go back to Project-List</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <h4>Add Project</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="messagesTime">
+                                        {% if project_form.errors %}
+                                        <div class="alert alert-danger">
+                                            <h6>{{ project_form.errors }}</h6>
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                    <!-- Project Title -->
+                                    <div class="mb-4">
+                                        <label for="project_title" class="form-label">Project Title</label>
+                                        {{ project_form.title }}
+                                    </div>
+                
+                                    <!-- Client Name -->
+                                    <div class="mb-4">
+                                        <label for="client_name" class="form-label">Client Name</label>
+                                        {{ project_form.client }}
+                                    </div>
+                
+                                    <!-- Project Address -->
+                                    <div class="mb-4">
+                                        <label for="project_address" class="form-label">Project Address</label>
+                                        {{ project_form.address }}
+                                    </div>
+                
+                                    <!-- Project Location -->
+                                    <div class="mb-4">
+                                        <label for="project_location" class="form-label">Project Location</label>
+                                        {{ project_form.location }}
+                                    </div>
+                
+                                    <!-- Project Description -->
+                                    <div class="mb-4">
+                                        <label for="project_description" class="form-label">Project Description</label>
+                                        {{ project_form.description }}
+                                    </div>
+                
+                                    <div class="row">
+                                        <!-- Slug -->
+                                        <div class="col-lg-6">
+                                            <div class="mb-4">
+                                                <label class="form-label">Slug</label>
+                                                <div class="row gx-2">
+                                                    {{ project_form.slug }}
+                                                </div>
+                                            </div>
+                                        </div>
+                
+                                        <!-- Related Service -->
+                                        <div class="col-lg-6">
+                                            <div class="mb-4">
+                                                <label class="form-label">Related Service</label>
+                                                {{ project_form.service }}
+                                            </div>
+                                        </div>
+                                    </div>
+                
+                                    <!-- Upload Project Images -->
+                                    <div class="mb-4">
+                                        <label class="form-label">Upload Project Images</label>
+                                        <input type="file" name="image" id="id_image" class="form-control" multiple>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-end">
+                                <button class="btn button-hover-effect mt-3 rounded" type="submit">Add Project</button>
+                            </div>
+                        </div>
+                        <!-- card end// -->
+                    </div>
+                </form>                
+            </section>
+{% endblock %}

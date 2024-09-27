@@ -1,0 +1,61 @@
+{% extends "useradmin/base.html" %}    
+    {% load static %}
+        {% block content %}    
+            <section class="content-main">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="content-header">
+                                <h2 class="content-title">Add New Service</h2>
+                                <a href="{% url "useradmin:service-list" %}" class="btn btn-lg">Click to go back to Service-List</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <h4>Add-Service</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="messagesTime">
+                                        {% if form.errors %}
+                                        <div class="alert alert-danger">
+                                            <h6>{{form.errors}}</h6>
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="product_name" class="form-label">Service Name</label>
+                                        {{form.name}}
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label">Full description</label>
+                                        {{form.description}}
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="mb-4">
+                                                <label class="form-label">Slug</label>
+                                                <div class="row gx-2">
+                                                    {{form.slug}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="mb-4">
+                                                <label class="form-label">Image</label>
+                                                {{form.image}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-end">
+                                <button class="btn button-hover-effect mt-3 rounded" type="submit">Add Service</button>
+                            </div>
+                        </div>
+                        <!-- card end// -->
+                    </div>
+                </form>
+            </section>
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends "useradmin/base.html" %}    
+    {% load static %}
+        {% block content %}    
+            <section class="content-main">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="content-header">
+                                <h2 class="content-title">Edit Project</h2>
+                                <a href="{% url 'useradmin:project-list' %}" class="btn btn-lg">Back to Project List</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <h4>Edit Project</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="messagesTime">
+                                        {% if project_form.errors %}
+                                        <div class="alert alert-danger">
+                                            <h6>{{ project_form.errors }}</h6>
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="project_title" class="form-label">Project Title</label>
+                                        {{ project_form.title }}
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="client_name" class="form-label">Client Name</label>
+                                        {{ project_form.client }}
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="project_address" class="form-label">Project Address</label>
+                                        {{ project_form.address }}
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="project_location" class="form-label">Project Location</label>
+                                        {{ project_form.location }}
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="project_description" class="form-label">Project Description</label>
+                                        {{ project_form.description }}
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="mb-4">
+                                                <label class="form-label">Slug</label>
+                                                <div class="row gx-2">
+                                                    {{ project_form.slug }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="mb-4">
+                                                <label class="form-label">Related Service</label>
+                                                {{ project_form.service }}
+                                            </div>
+                                        </div>
+                                    </div>
+                
+                                    <!-- Current Images -->
+                                    <div class="mb-4">
+                                        <label class="form-label">Current Project Images</label>
+                                        <div class="row">
+                                            {% for image in images %}
+                                                <div class="col-3">
+                                                    <img src="{{ image.image.url }}" alt="Project Image" class="img-fluid">
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                
+                                    <!-- Add More Images -->
+                                    <div class="mb-4">
+                                        <label class="form-label">Add More Images</label>
+                                        <input type="file" name="image" id="id_image" class="form-control" multiple>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-end">
+                                <button class="btn button-hover-effect mt-3 rounded" type="submit">Update Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>                
+            </section>
+{% endblock %}

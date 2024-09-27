@@ -1,0 +1,113 @@
+{% extends "useradmin/base.html" %}    
+    {% load static %}
+        {% block content %}            
+            <section class="content-main">
+                <div class="content-header">
+                    <div>
+                        <h2 class="content-title card-title">Dashboard</h2>
+                        <p>Whole data about your business here</p>
+                    </div>
+                    <div class="messagesTime">
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-{{message.tags}}">
+                                    <strong>{{ message }}</strong>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="card card-body mb-4">
+                            <article class="icontext">
+                                <span class="icon icon-sm rounded-circle bg-primary-light"><i class="text-primary fas fa-envelope"></i></span>
+                                <div class="text">
+                                    <h6 class="mb-1 card-title">Customer Emails</h6>
+                                    <span>{{emails.count}}</span>
+                                    <span class="text-sm"> No. of Emails Received </span>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card card-body mb-4">
+                            <article class="icontext">
+                                <span class="icon icon-sm rounded-circle bg-success-light"><i class="text-success fas fa-wrench"></i></span>
+                                <div class="text">
+                                    <h6 class="mb-1 card-title">Services</h6>
+                                    <span>{{services.count}}</span>
+                                    <span class="text-sm"> No. of Services </span>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card card-body mb-4">
+                            <article class="icontext">
+                                <span class="icon icon-sm rounded-circle bg-warning-light"><i class="text-warning fas fa-address-book"></i></span>
+                                <div class="text">
+                                    <h6 class="mb-1 card-title">Customer Contacts</h6>
+                                    <span>{{contacts.count}}</span>
+                                    <span class="text-sm"> In {{categories.count}} Contacts </span>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card card-body mb-4">
+                            <article class="icontext">
+                                <span class="icon icon-sm rounded-circle bg-info-light"><i class="text-info fas fa-blog"></i></span>
+                                <div class="text">
+                                    <h6 class="mb-1 card-title">Blogs</h6>
+                                    <span>{{blogs.count}}</span>
+                                    <span class="text-sm"> Total No. of Blogs </span>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <header class="card-header">
+                        <h4 class="card-title">Latest Contact Mails</h4>
+                        {% if not contacts %}
+                            <h3>No Contacts Yet!</h3>
+                        {% endif %}
+                    </header>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <div class="table-responsive">
+                                <table class="table align-middle table-nowrap mb-0">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th class="align-middle" scope="col">ID</th>
+                                            <th class="align-middle" scope="col">Name</th>
+                                            <th class="align-middle" scope="col">Email</th>
+                                            <th class="align-middle" scope="col">Phone No.</th>
+                                            <th class="align-middle" scope="col">Subject</th>                                            
+                                            <th class="align-middle" scope="col">Message</th>
+                                            <th class="align-middle" scope="col">Received At</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for c in contacts %}
+                                            <tr>
+                                                <td><aclass="fw-bold">#{{c.id}}</aclass=></td>
+                                                <td>{{c.name}}</td>
+                                                <td>{{c.email}}</td>
+                                                <td>{{c.phone_no}}</td>
+                                                <td>{{c.subject}}</td>
+                                                <td>{{c.message|truncatechars:20}}</td>
+                                                <td>{{c.submitted_at}}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- table-responsive end// -->
+                    </div>
+                </div>
+            </section>
+            <!-- content-main end// -->
+        {% endblock content%}

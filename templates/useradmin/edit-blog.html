@@ -1,0 +1,95 @@
+{% extends "useradmin/base.html" %}
+{% load static %}
+{% block content %}
+    <section class="content-main">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-12">
+                    <div class="content-header">
+                        <h2 class="content-title">Add New Blog Post</h2>
+                        <a href="{% url "useradmin:blogs-list" %}" class="btn btn-lg">Back to Blog List</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4>Add Blog</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="messagesTime">
+                                {% if form.errors %}
+                                    <div class="alert alert-danger">
+                                        <h6>{{ form.errors }}</h6>
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="mb-4">
+                                <label for="blog_title" class="form-label">Blog Title</label>
+                                {{ form.title }}
+                            </div>
+                            <div class="mb-4">
+                                <label for="blog_content" class="form-label">Content</label>
+                                {{ form.content }}
+                            </div>
+                            <div class="mb-4">
+                                <label for="blog_quote" class="form-label">Quote</label>
+                                {{ form.quotes }}
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="mb-4">
+                                        <label class="form-label">Slug</label>
+                                        {{ form.slug }}
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="mb-4">
+                                        <label class="form-label">Featured Image</label>
+                                        {{ form.image }}
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="mb-4">
+                                        <label class="form-label">Existing Featured Image</label>
+                                        <img src="{{blog.image.url}}" alt="Featured Image">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="mb-4">
+                                    <label class="form-label">Additional Blog Images</label>
+                                    <input type="file" name="image" id="id_image" class="form-control" multiple>                            </div>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label">Home Page Display</label>
+                                    {{ form.latest }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% if images %}
+                        <div class="row mt-10">
+                            <div class="col-lg-10">
+                                <div class="card-header">
+                                    <h4 class="mt-5">Existing Blog Images</h4>
+                                </div>
+                                <div class="row card-body">
+                                    {% for image in images %}
+                                        <div class="col-md-3">
+                                            <img src="{{ image.image.url }}" alt="Blog Image" class="img-thumbnail" style="width: 100%; height: 100%;">
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="text-end">
+                    <button class="btn mt-3 rounded button-hover-effect" type="submit">Update Blog Post</button>
+                </div>
+            </div>
+        </form>
+    </section>
+{% endblock %}

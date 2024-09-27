@@ -1,0 +1,137 @@
+{% extends "useradmin/base.html" %}
+{% load static %}
+{% block content %}
+    <section class="content-main">
+        <div class="messagesTime">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{message.tags}}">
+                        <strong>{{ message }}</strong>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+
+        <div class="content-header">
+            <div>
+                <h2 class="content-title card-title">Project Details</h2>
+                <p>Details for Service Project: {{ project.service.name }}</p>
+            </div>
+            <a href="{% url 'useradmin:project-list' %}" class="btn btn-lg ms-auto">Click to go back to Project List</a>
+        </div>
+
+        <div class="card">
+            <header class="card-header">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-6 mb-lg-0 mb-15">
+                        <small class="text-muted">Project ID: {{ project.id }}</small>
+                    </div>
+                </div>
+            </header>
+            <!-- card-header end// -->
+
+            <div class="card-body">
+                <div class="row mb-50 mt-20 order-info-wrap">
+                    <div class="col-md-6">
+                        <article class="icontext align-items-start">
+                            <span class="icon icon-sm rounded-circle bg-primary-light">
+                                <i class="text-primary fas fa-heading"></i>
+                            </span>
+                            <div class="text">
+                                <h6 class="mb-1">Project Title</h6>
+                                <p class="mb-1">
+                                    {{ project.title }}<br />
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- col// -->
+                    <div class="col-md-6">
+                        <article class="icontext align-items-start">
+                            <span class="icon icon-sm rounded-circle bg-primary-light">
+                                <i class="text-primary material-icons md-description"></i>
+                            </span>
+                            <div class="text">
+                                <h6 class="mb-1">Service Description</h6>
+                                <p class="mb-1">
+                                    {{ project.description }}<br />
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- col// -->
+                </div>
+                <!-- row // -->
+
+                <div class="row mb-50 mt-20 order-info-wrap">
+                    <div class="col-md-4">
+                        <article class="icontext align-items-start">
+                            <span class="icon icon-sm rounded-circle bg-primary-light">
+                                <i class="text-primary fas fa-solid fa-user"></i>
+                            </span>
+                            <div class="text">
+                                <h6 class="mb-1">Client</h6>
+                                <p class="mb-1">
+                                    {{ project.client }}<br />
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- col// -->
+                    <div class="col-md-4">
+                        <article class="icontext align-items-start">
+                            <span class="icon icon-sm rounded-circle bg-primary-light">
+                                <i class="text-primary fas fa-location-arrow"></i>
+                            </span>
+                            <div class="text">
+                                <h6 class="mb-1">Address</h6>
+                                <p class="mb-1">
+                                    {{ project.address }}<br />
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- col// -->
+                    <div class="col-md-4">
+                        <article class="icontext align-items-start">
+                            <span class="icon icon-sm rounded-circle bg-primary-light">
+                                <i class="text-primary fas fa-search-location"></i>
+                            </span>
+                            <div class="text">
+                                <h6 class="mb-1">Location</h6>
+                                <p class="mb-1">
+                                    {{ project.location }}<br />
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <!-- row // -->
+
+                <!-- Service Image -->
+                <div class="row">
+                    <div class="col-lg-6">
+                        <article class="icontext align-items-start">
+                            <span class="icon icon-sm rounded-circle bg-primary-light">
+                                <i class="text-primary material-icons md-image"></i>
+                            </span>
+                            <div class="text">
+                                <h6 class="mb-1">Project Images</h6>
+                                <div class="row mb-1">
+                                    {% for image in images %}
+                                        <div class="col-3">
+                                            <img src="{{ image.image.url }}" alt="Project Image" class="img-fluid">
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <!-- row // -->
+            </div>
+            <!-- card-body end// -->
+        </div>
+        <!-- card end// -->
+    </section>
+{% endblock content %}

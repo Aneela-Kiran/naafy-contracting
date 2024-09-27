@@ -1,0 +1,207 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Burly Contracting Dashboard</title>
+        <meta http-equiv="x-ua-compatible" content="ie=edge" />
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:title" content="" />
+        <meta property="og:type" content="" />
+        <meta property="og:url" content="" />
+        <meta property="og:image" content="" />
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="{% static 'assets1/imgs/theme/b-logo.ico' %}" />
+        <!-- Template CSS -->
+        <link href="{% static 'assets1/css/main.css' %}" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/custom.css' %}" type="text/css">
+
+        <!-- Add the Font Awesome CSS file -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </head>
+
+    <body class="dark">
+        <div class="screen-overlay"></div>
+        <aside class="navbar-aside" id="offcanvas_aside">
+            <div class="d-flex justify-content-center align-items-center">
+                <a href="{% url 'home:home' %}" class="brand-wrap">
+                    <img src="{% static 'img/b-logo.png' %}" class="logo mr-100" width="80px" alt="Burly Dashboard" />
+                </a>
+                <div class="mx-3">
+                    <button class="btn btn-icon btn-aside-minimize">
+                        <i class="text-muted material-icons md-menu_open"></i>
+                    </button>
+                </div>
+                <div class="ml-auto">
+                    <!-- Other content can go here -->
+                </div>
+            </div>
+            <nav>
+                <ul class="menu-aside">
+                    <li class="menu-item {% url 'useradmin:dashboard' as dashboard_url %} {% if request.path == dashboard_url %}active{% endif %}">
+                        <a class="menu-link" href="{% url 'useradmin:dashboard' %}">
+                            <i class="icon material-icons md-home"></i>
+                            <span class="text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="menu-item has-submenu">
+                        <a class="menu-link" href="#">
+                            <i class="icon fas fa-wrench"></i>
+                            <span class="text">Services</span>
+                        </a>
+                        <div class="submenu">
+                            <a href="{% url 'useradmin:service-list' %}">Services List</a>
+                            <a href="{% url 'useradmin:project-list' %}">Projects List</a>
+                        </div>
+                    </li>
+                    <li class="menu-item {% url 'useradmin:gen-service-list' as gen_service_list %} {% if request.path == gen_service_list %}active{% endif %}">
+                        <a class="menu-link" href="{% url 'useradmin:gen-service-list' %}">
+                            <i class="icon fas fa-screwdriver"></i>
+                            <span class="text">General Services</span>
+                        </a>
+                    </li>
+                    <li class="menu-item has-submenu">
+                        <a class="menu-link" href="#">
+                            <i class="icon fas fa-blog"></i>
+                            <span class="text">Blogs</span>
+                        </a>
+                        <div class="submenu">
+                            <a href="{% url "useradmin:blogs-list" %}">Blog List</a>
+                            <a href="{% url "useradmin:blog-reply-list" %}">Blog Replies</a>
+                        </div>
+                    </li>
+                    <li class="menu-item {% url 'useradmin:email-list' as email_list_url %} {% if request.path == email_list_url %}active{% endif %}">
+                        <a class="menu-link" href="{% url 'useradmin:email-list' %}">
+                            <i class="icon fas fa-envelope"></i>
+                            <span class="text">Emails</span>
+                        </a>
+                    </li>
+                    <li class="menu-item {% url 'useradmin:contact-list' as contact_list_url %} {% if request.path == contact_list_url %}active{% endif %}">
+                        <a class="menu-link" href="{% url 'useradmin:contact-list' %}">
+                            <i class="icon fas fa-address-book"></i>
+                            <span class="text">Customer Contacts</span>
+                        </a>
+                    </li>
+                        <li class="menu-item has-submenu">
+                            <a class="menu-link">
+                                <i class="icon material-icons md-person"></i>
+                                <span class="text">Account</span>
+                            </a>
+                            {% if request.user.is_authenticated %}
+                                <div class="submenu">
+                                    <a>Already Logged In!</a>
+                                </div>
+                            {% else %}
+                                <div class="submenu">
+                                    <a href="{% url "useradmin:login" %}">User login</a>
+                                </div>
+                        </li>
+                            {% endif %}
+                    <li class="menu-item {% url 'useradmin:reviews-list' as reviews_url %} {% if request.path == reviews_url %}active{% endif %} ">
+                        <a class="menu-link" href="{% url "useradmin:reviews-list" %}">
+                            <i class="icon material-icons md-comment"></i>
+                            <span class="text">Reviews</span>
+                        </a>
+                    </li>
+                </ul>
+                <hr />
+                <ul class="menu-aside">
+                    <li class="menu-item">
+                        <a class="menu-link" href="{% url "useradmin:profile" %}">
+                            <i class="icon material-icons md-settings"></i>
+                            <span class="text">Profile Settings</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="menu-aside">
+                    <li class="menu-item">
+                        <a class="menu-link" href="{% url "useradmin:contact-details" %}">
+                            <i class="icon material-icons md-edit"></i>
+                            <span class="text">Edit Contact Details</span>
+                        </a>
+                    </li>
+                </ul>
+                <br />
+                <br />
+            </nav>            
+        </aside>
+        <main class="main-wrap">
+            <header class="main-header navbar">
+                <div class="col-nav ms-auto">
+                    <button class="btn btn-icon btn-mobile" data-trigger="#offcanvas_aside"><i class="material-icons md-apps"></i></button>
+                    <ul class="nav ms-auto">
+                        <li class="nav-item">
+                            <a href="#" class="requestfullscreen nav-link btn-icon"><i class="material-icons md-cast"></i></a>
+                        </li>
+                        <li class="dropdown nav-item">
+                            {% if request.user.profile.profile_image %}
+                            <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" id="dropdownAccount" aria-expanded="false"> <img class="img-xs rounded-circle" src="{{request.user.profile.profile_image.url}}" alt="User" /></a>
+                            {% else %}
+                            <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" id="dropdownAccount" aria-expanded="false"> <img class="img-xs rounded-circle" src="data:image/png;base64,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" alt="User" /></a>
+                            {% endif %}
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownAccount">
+                                <a class="dropdown-item" href="{% url "useradmin:profile" %}"><i class="material-icons md-perm_identity"></i>Edit Profile</a>
+                                <a class="dropdown-item" href="{% url "useradmin:dashboard" %}"><i class="material-icons md-home"></i>Dashboard</a>
+                                <div class="dropdown-divider"></div>
+                                {% if request.user.is_authenticated %}
+                                    <a class="dropdown-item text-danger" href="{% url "useradmin:logout" %}"><i class="material-icons md-exit_to_app"></i>Logout</a>
+                                {% endif %}
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+            {% block content %}
+
+            {% endblock content %}
+            <footer class="main-footer font-xs">
+                <div class="row pb-30 pt-15">
+                    <div class="col-sm-6">
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script>
+                        &copy; Burly Contracting .
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="text-sm-end">All rights reserved</div>
+                    </div>
+                </div>
+            </footer>
+        </main>
+        <script src="{% static 'assets1/js/vendors/jquery-3.6.0.min.js' %}"></script>
+        <script src="{% static 'assets1/js/vendors/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'assets1/js/vendors/select2.min.js' %}"></script>
+        <script src="{% static 'assets1/js/vendors/perfect-scrollbar.js' %}"></script>
+        <script src="{% static 'assets1/js/vendors/jquery.fullscreen.min.js' %}"></script>
+        <script src="{% static 'assets1/js/vendors/chart.js' %}"></script>
+        <!-- Main Script -->
+        <script src="{% static 'assets1/js/main.js' %}" type="text/javascript"></script>
+        <script src="{% static 'assets1/js/custom-chart.js' %}" type="text/javascript"></script>
+        <script>
+            window.addEventListener('load', function() {
+                // Select the div with the class "messagesTime"
+                const messagesDiv = document.querySelector('.messagesTime');
+                
+                // Check if the div contains any messages
+                if (messagesDiv) {
+                    // Set a timeout to hide the div after 3 seconds (3000 milliseconds)
+                    setTimeout(function() {
+                        messagesDiv.style.display = 'none';
+                    }, 3000); // 3000ms = 3 seconds
+                }
+            });
+
+            function addBulletPoint() {
+                const wrapper = document.getElementById('bullet-points-wrapper');
+                const newInput = document.createElement('input');
+                newInput.type = 'text';
+                newInput.name = 'bullet_point';
+                newInput.className = 'form-control mb-2';
+                newInput.placeholder = 'Enter bullet point';
+                wrapper.appendChild(newInput);
+            }
+        </script>
+    </body>
+</html>
