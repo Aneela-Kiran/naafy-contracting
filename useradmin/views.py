@@ -564,6 +564,7 @@ def change_password(request):
     return render(request, "useradmin/change-password.html")
 
 ''' *******************Contact Details Section******************************* '''
+@login_required
 def edit_contact_details(request):
     contact_details = ContactDetails.objects.first()
     if request.method == "POST":
@@ -579,6 +580,7 @@ def edit_contact_details(request):
     return render(request, "useradmin/edit-contact-details.html", {"form":form})
 
 ''' *******************Contact Details Section******************************* '''
+@login_required
 def about_us_view(request):
     about_us = About.objects.all().first()
     if request.method == "POST":
