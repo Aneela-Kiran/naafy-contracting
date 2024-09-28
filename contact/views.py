@@ -50,7 +50,7 @@ def contact_form(request):
             send_mail(email_subject, email_message, 'info@burlycontracting.ca', recipient_list)
 
             messages.success(request, "Message Sent Successfully!")
-            return redirect("contact:contact-form")  # Redirect after successful submission
+            return redirect("contact:contactus")  # Redirect after successful submission
         else:
             messages.warning(request, "Please fill in all required fields.")
     else:
