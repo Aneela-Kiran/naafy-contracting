@@ -46,7 +46,7 @@ def contact_form(request):
                 f"Phone No: {phone_no}\n"
                 f"Message:\n{message}"
             )
-            recipient_list = ['sycode4j@gmail.com'] 
+            recipient_list = ['info@burlycontracting.com'] 
             send_mail(email_subject, email_message, 'm.hamza.codes@gmail.com', recipient_list)
 
             messages.success(request, "Message Sent Successfully!")
