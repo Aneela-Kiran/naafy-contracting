@@ -144,7 +144,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'm.hamza.codes@gmail.com'
-EMAIL_HOST_PASSWORD = 'idhz bvjl hjgr dvsr'
+EMAIL_HOST_PASSWORD = 'kaat zdhc tvuw bmad'
 DEFAULT_FROM_EMAIL = 'm.hamza.codes@gmail.com'
 
 

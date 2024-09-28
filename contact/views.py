@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from .forms import ContactForm
 from django.http import JsonResponse
 from .models import Reviews, ContactDetails
+from django.contrib import messages
 
 # Create your views here.
 def contact_us(request):
@@ -27,9 +28,10 @@ def contact_form(request):
             recipient_list = ['sycode4j@gmail.com','muh.ahmednoor@gmail.com'] 
             send_mail(subject, message, 'm.hamza.codes@gmail.com', recipient_list)
 
-            # Set session flag to indicate the form was submitted
-            request.session["form_submitted"] = True
-            return JsonResponse({"status": "success", "message": "Form Submitted Successfully!!"})
+            messages.success(request, "Message Sent Successfully!")
+            return redirect("contact:contact-form")
         else:
-            return JsonResponse({"status": "error", "message": "Invalid Data! Please Fill the form Again!!"})
-    return JsonResponse({"status": "error", "message": "Invalid Data! Please Fill the form Again!!"})
+            messages.warning(request, "Invalid Data! Please Fill the form Again!!")
+    else:
+        form = ContactForm()
+    return render(request, "contact/contact-us.html", {"form" : form})

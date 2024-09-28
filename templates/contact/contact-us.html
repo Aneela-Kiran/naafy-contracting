@@ -87,9 +87,22 @@
                 </div>
             </div>
             <div class="row">
+                <div class="col-6">
+                    <div class="messagesTime">
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-{{message.tags}}">
+                                    <strong>{{ message }}</strong>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-lg-8">
                     <div class="contact__form">
-                        <form id="contact-form" method="POST" action="{% url "contact:contact-form" %}">
+                        <form id="contact-form" method="POST">
                             {% csrf_token %}
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6">
@@ -110,7 +123,6 @@
                                 </div>
                             </div>
                         </form>
-                        <h4 style="display:none;" id="contact-text">Thank You for sending us Message. We Will contact you soon!</h4>
                     </div>
                 </div>
             </div>
