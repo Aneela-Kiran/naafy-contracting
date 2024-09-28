@@ -3,6 +3,8 @@ from django.core.mail import send_mail
 from .models import Contact
 from .models import Reviews, ContactDetails
 from django.contrib import messages
+from django.views.decorators.csrf import csrf_protect
+
 
 # Create your views here.
 def contact_us(request):
@@ -13,7 +15,8 @@ def contact_us(request):
         "contact_details" : contact_details,
     }
     return render(request, "contact/contact-us.html", context)
-    
+
+@csrf_protect
 def contact_form(request):
     # Handle form submission
     if request.method == "POST":

@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Blog, BlogImage, BlogReply
 from django.core.paginator import Paginator
+from django.views.decorators.csrf import csrf_protect
 # Create your views here.
 def blog_list(request):
     blogs = Blog.objects.all().order_by("-id")
@@ -12,6 +13,7 @@ def blog_list(request):
     }
     return render(request, "blog/blog.html", context)
 
+@csrf_protect
 def blog_details(request, slug):
 
     # Fetch the blog post based on the slug
