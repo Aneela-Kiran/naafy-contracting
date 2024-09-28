@@ -104,3 +104,50 @@
 .button-hover-effect:hover::before {
     left: 0;
 }
+
+/* Base styles for the number list */
+.stats-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Ensure responsive centering */
+@media (max-width: 768px) { /* Mobile devices */
+    .stats-container {
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .stats-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .stats-item span.number {
+        font-size: 2.5rem; /* Adjust for mobile view */
+        color: #ADD8E6; /* Light blue as in your image */
+    }
+
+    .stats-item span.label {
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: black; /* Adjust color if needed */
+    }
+}
+
+/* Larger screens */
+@media (min-width: 769px) {
+    .stats-container {
+        /* Adjust positioning for larger screens */
+        display: flex;
+    }
+}
