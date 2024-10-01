@@ -207,7 +207,7 @@ def mark_as_responded(request, id):
 ''' *******************Contact SECTION******************************* '''
 @login_required
 def contact_view(request):
-    contacts = Contact.objects.all()
+    contacts = Contact.objects.all().order_by("-id")
     paginator = Paginator(contacts, 10)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
@@ -336,7 +336,7 @@ def delete_gen_service(request, id):
 ''' *******************Reviews Section******************************* '''
 @login_required
 def reviews_list(request):
-    reviews = Reviews.objects.all()
+    reviews = Reviews.objects.all().order_by("id")
     paginator = Paginator(reviews, 5)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)

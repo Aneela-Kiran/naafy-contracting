@@ -36,11 +36,10 @@
                     </div>
                     <div class="blog__item__quote">
                         <p>“{{blogs.quotes}}”</p>
-                        <span>Martin Lockhart</span>
                     </div>
                     <div class="blog__details__pic">
                         <div class="row">
-                            {% for image in blog_images %}
+                            {% for image in blog_images|slice:":3" %}
                             <div class="col-lg-4 col-md-4 col-sm-4 hover-effect">
                                 <img style="height:80%; width:80%;" src="{{image.image.url}}" alt="">
                             </div>
