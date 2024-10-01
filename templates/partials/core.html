@@ -69,7 +69,7 @@
                 <div class="col-lg-3">
                     <div class="header__widget">
                         <span>Call us for any questions</span>
-                        <h3>{{contact_details.phone_no}}</h3>
+                        <h3 style="color:#ADD8E6;">{{contact_details.phone_no}}</h3>
                     </div>
                 </div>
             </div>
@@ -141,7 +141,7 @@
                     <div class="footer__widget">
                         <h6>Services</h6>
                         <ul>
-                            {% for s in services|slice:":5"%}
+                            {% for s in services|slice:":4" %}
                                 <li><a href="{% url "services:service-projects" s.slug %}">{{s.name}}</a></li>
                             {% endfor %}
                         </ul>
