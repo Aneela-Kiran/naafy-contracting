@@ -35,7 +35,7 @@
                                     </ul>
                                     <h2>{{b.title}}</h2>
                                     <div class="hover-effect">
-                                        <a href="{% url 'blog:blog-details' b.slug %}"></a> <img src="{{b.image.url}}" alt="">
+                                        <a href="{% url 'blog:blog-details' b.slug %}"><img src="{{b.image.url}}" alt=""></a>
                                     </div>
                                     <div class="blog__item__text">
                                         <p>{{b.content|truncatewords:30}}</p>
