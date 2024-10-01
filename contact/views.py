@@ -24,7 +24,6 @@ def contact_form(request):
         name = request.POST.get("name")
         email = request.POST.get("email")
         phone_no = request.POST.get("phone_no")
-        subject = request.POST.get("subject")
         message = request.POST.get("message")
 
         # Simple validation
@@ -34,12 +33,11 @@ def contact_form(request):
                 name=name,
                 email=email,
                 phone_no=phone_no,
-                subject=subject,
                 message=message
             )
 
             # Prepare email content
-            email_subject = f"New Contact Form Submission: {subject}"
+            email_subject = f"New Contact Form Submission"
             email_message = (
                 f"Name: {name}\n"
                 f"Email: {email}\n"

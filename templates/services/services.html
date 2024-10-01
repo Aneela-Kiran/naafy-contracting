@@ -26,7 +26,7 @@
                 {% for s in services %}
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="project__item">
-                        <img style="height:300px; width:300px;" src="{{s.image.url}}" alt="">
+                        <a href="{% url "services:service-projects" s.slug %}"><img style="height:300px; width:300px;" src="{{s.image.url}}" alt=""></a>
                         <h4><a href="{% url "services:service-projects" s.slug %}">{{s.name}}</a></h4>
                         <p>{{s.description}}</p>
                     </div>
@@ -65,40 +65,30 @@
         <div class="container">
             <div class="counter__content">
                 <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-6 stats-container">
+                    <div class="col-lg-4 col-md-6 col-sm-6 stats-container">
                         <div class="counter__item">
                             <div class="counter__item__number">
-                                <h2 class="count">85</h2>
+                                <h2 class="count">30</h2>
                             </div>
                             <div class="counter__item__text">
                                 <h5>Projects<br /> Completed</h5>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 stats-container">
+                    <div class="col-lg-4 col-md-6 col-sm-6 stats-container">
                         <div class="counter__item">
                             <div class="counter__item__number">
-                                <h2 class="count">127</h2>
+                                <h2 class="count">53</h2>
                             </div>
                             <div class="counter__item__text">
                                 <h5>Happy<br /> Clients</h5>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 stats-container">
+                    <div class="col-lg-4 col-md-6 col-sm-6 stats-container">
                         <div class="counter__item">
                             <div class="counter__item__number">
-                                <h2 class="count">36</h2>
-                            </div>
-                            <div class="counter__item__text">
-                                <h5>Awards<br /> Received</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 stats-container">
-                        <div class="counter__item">
-                            <div class="counter__item__number">
-                                <h2 class="count">74</h2>
+                                <h2 class="count">34</h2>
                             </div>
                             <div class="counter__item__text">
                                 <h5>Cups Of<br /> Coffee</h5>
@@ -110,41 +100,4 @@
         </div>
     </section>
     <!-- Counter Section End -->
-
-    <!-- Client Section Begin -->
-    <section class="clients spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5 col-md-5 stats-container">
-                    <div class="section-title">
-                        <span>Branding</span>
-                        <h2>Our Clients</h2>
-                    </div>
-                </div>
-                <div class="col-lg-7 col-md-7 stats-container">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-4 col-sm-4">
-                            <a href="#"><img src="{% static 'img/logo/logo-1.png' %}" alt=""></a>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4">
-                            <a href="#"><img src="{% static 'img/logo/logo-2.png' %}" alt=""></a>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4">
-                            <a href="#"><img src="{% static 'img/logo/logo-3.png' %}" alt=""></a>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4">
-                            <a href="#"><img src="{% static 'img/logo/logo-4.png' %}" alt=""></a>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4">
-                            <a href="#"><img src="{% static 'img/logo/logo-3.png' %}" alt=""></a>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4">
-                            <a href="#"><img src="{% static 'img/logo/logo-5.png' %}" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Client Section End -->
 {% endblock content %}
