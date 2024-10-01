@@ -4,7 +4,6 @@ from django.db import models
 class Contact(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
-    subject = models.CharField(max_length=200, default="Help!")
     phone_no = models.CharField(max_length=20, default="+123 456 7890")
     message = models.TextField()
     submitted_at = models.DateTimeField(auto_now_add=True)

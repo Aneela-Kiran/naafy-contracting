@@ -60,7 +60,7 @@
                             <li><a href="{% url "home:home" %}">Home</a></li>
                             <li><a href="{% url "aboutus:aboutus" %}">About</a></li>
                             <li><a href="{% url "services:services" %}">Services</a></li>
-                            <li><a href="{% url "services:gen-services" %}">General Services</a></li>
+                            <li><a href="{% url "services:gen-services" %}">Contracts</a></li>
                             <li><a href="{% url "blog:blog-list" %}">Blog</a></li>
                             <li><a href="{% url "contact:contactus" %}">Contact</a></li>
                         </ul>
@@ -69,7 +69,7 @@
                 <div class="col-lg-3">
                     <div class="header__widget">
                         <span>Call us for any questions</span>
-                        <h4>{{contact_details.phone_no}}</h4>
+                        <h3>{{contact_details.phone_no}}</h3>
                     </div>
                 </div>
             </div>
@@ -119,10 +119,10 @@
                             <li>{{contact_details.phone_no}}</li>
                         </ul>
                         <div class="footer__social">
-                            <a href="https://www.facebook.com/profile.php?id=61560731714423"><i class="fa fa-facebook"></i></a>
-                            <a href="https://www.tiktok.com/@burly.contracting"><i class="fa-brands fa-tiktok"></i></a>
-                            <a href="https://www.instagram.com/burly.contracting/?utm_source=ig_web_button_share_sheet"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                            <a href="https://www.facebook.com/profile.php?id=61560731714423" target="_blank"><i class="fa fa-facebook"></i></a>
+                            <a href="https://www.tiktok.com/@burly.contracting" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                            <a href="https://www.instagram.com/burly.contracting/?utm_source=ig_web_button_share_sheet" target="_blank"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-linkedin" target="_blank"></i></a>
                         </div>
                     </div>
                 </div>
@@ -141,7 +141,7 @@
                     <div class="footer__widget">
                         <h6>Services</h6>
                         <ul>
-                            {% for s in services|slice:":5"%}
+                            {% for s in services|slice:":4"%}
                                 <li><a href="{% url "services:service-projects" s.slug %}">{{s.name}}</a></li>
                             {% endfor %}
                         </ul>

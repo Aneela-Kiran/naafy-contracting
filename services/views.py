@@ -4,7 +4,7 @@ from django.core.paginator import Paginator
 
 # Create your views here.
 def services_view(request):
-    services = Service.objects.all()
+    services = Service.objects.all().order_by("id")
     paginator = Paginator(services, 6)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
@@ -15,7 +15,7 @@ def services_view(request):
 
 def service_projects(request, slug):
     service = get_object_or_404(Service, slug=slug)
-    projects = Project.objects.filter(service=service)
+    projects = Project.objects.filter(service=service).order_by("-id")
     
     # Pagination
     paginator = Paginator(projects, 1)  # Show 1 project per page
@@ -33,7 +33,7 @@ def service_projects(request, slug):
     return render(request, "services/service-projects.html", context)
 
 def general_service_view(request):
-    gen_services = GeneralContracting.objects.all()
+    gen_services = GeneralContracting.objects.all().order_by("id")
     paginator = Paginator(gen_services, 8)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
