@@ -151,25 +151,25 @@ EMAIL_HOST_PASSWORD = '@Burly1234@'
 
 JAZZMIN_SETTINGS = {
     # Title of the window (defaults to the current_admin_site.site_title)
-    "site_title": "Burly Contracting",
+    "site_title": "Naafy Contracting",
 
     # Title on the login screen (defaults to current_admin_site.site_header)
-    "site_header": "Burly Contracting",
+    "site_header": "Naafy Contracting",
 
     # Title on the brand (defaults to current_admin_site.site_header)
-    "site_brand": "Burly Contracting!",
+    "site_brand": "Naafy Contracting!",
 
     # Logo to use for your site, must be present in static files, used for brand on top left
     "site_logo": "assets1/imgs/theme/b-logo.ico",
 
     # Small text logo for the top left (19 chars max)
-    "site_logo_text": "Burly Contracting",
+    "site_logo_text": "Naafy Contracting",
 
     # Welcome text on the login screen
     "welcome_sign": "Welcome to Your Admin Portal",
 
     # Copyright text in the footer
-    "copyright": "Burly Contracting © 2024",
+    "copyright": "Naafy Contracting © 2024",
 
     # The model name or import path to the user model, used by Jazzmin to power the user menu
     "user_model": "auth.User",
