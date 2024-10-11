@@ -45,7 +45,7 @@ def contact_form(request):
                 f"Message:\n{message}"
             )
             recipient_list = ['sycode4j@gmail.com', 'm.hamza.codes@gmail.com', 'muh.ahmednoor@gmail.com'] 
-            send_mail(email_subject, email_message, 'info@burlycontracting.ca', recipient_list)
+            send_mail(email_subject, email_message, 'info@naafycontracting.com', recipient_list)
 
             messages.success(request, "Message Sent Successfully!")
             return redirect("contact:contactus")  # Redirect after successful submission
