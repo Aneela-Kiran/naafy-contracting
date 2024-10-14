@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="{% static 'assets1/imgs/theme/b-logo.ico' %}" />
+    <link rel="icon" type="image/x-icon" href="{% static 'img/logo/nc-logo.png' %}" />
 
     <!-- Add the Font Awesome CSS file -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -36,12 +36,12 @@
     <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__logo">
-            <a href="{% url "home:home" %}"><img src="{% static 'img/b-logo.png' %}" width="80px" alt=""></a>
+            <a href="{% url "home:home" %}"><img src="{% static 'img/logo/nc-logo.png' %}" width="80px" alt=""></a>
         </div>
         <div id="mobile-menu-wrap"></div>
         <div class="offcanvas__widget">
             <span>Call us for any questions</span>
-            <h4>{{contact_details.phone_no}}</h4>
+            <h4 style="color:#ffffff">{{contact_details.phone_no}}</h4>
         </div>
     </div>
     <!-- Offcanvas Menu End -->
@@ -52,7 +52,7 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="{% url "home:home" %}"><img src="{% static 'img/b-logo.png' %}" width="80px" alt=""></a>
+                        <a href="{% url "home:home" %}"><img src="{% static 'img/logo/nc-logo.png' %}" width="110px" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -70,7 +70,7 @@
                 <div class="col-lg-3">
                     <div class="header__widget">
                         <span>Call us for any questions</span>
-                        <h3 style="color:#ADD8E6;">{{contact_details.phone_no}}</h3>
+                        <h3>{{contact_details.phone_no}}</h3>
                     </div>
                 </div>
             </div>
@@ -112,7 +112,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 stats-container">
                     <div class="footer__about">
                         <div class="footer__logo">
-                            <a href="{% url "home:home" %}"><img src="{% static 'img/b-logo.png' %}" width="80px" alt=""></a>
+                            <a href="{% url "home:home" %}"><img src="{% static 'img/logo/nc-logo.png' %}" width="120px" alt=""></a>
                         </div>
                         <p>{{contact_details.office_location}}</p>
                         <ul>
