@@ -1457,7 +1457,7 @@ ol {
 
 .breadcrumb__links a {
 	font-size: 15px;
-	color: #ffffff;
+	color: #111111;
 	display: inline-block;
 	position: relative;
 	margin-right: 12px;
@@ -1472,7 +1472,7 @@ ol {
 
 .breadcrumb__links span {
 	font-size: 15px;
-	color: #ADD8E6;
+	color: #111111;
 	display: inline-block;
 }
 
