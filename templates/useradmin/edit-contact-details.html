@@ -60,7 +60,9 @@
                                         <br />
                                         
                                         {% if request.user.is_authenticated %}
-                                        <button class="btn button-hover-effect" type="submit">Save changes</button>
+                                        <div class="text-end">
+                                            <button class="btn button-hover-effect" type="submit">Save changes</button>
+                                        </div>
                                         {% endif %}
                                     </form>
                                     <hr class="my-5" />
