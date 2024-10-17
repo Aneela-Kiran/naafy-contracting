@@ -145,7 +145,7 @@ EMAIL_PORT = 465  # or 587 if you're using TLS
 EMAIL_USE_SSL = True  # Set to True for port 465, False for port 587
 # If using port 587, set EMAIL_USE_TLS to True and EMAIL_USE_SSL to False
 EMAIL_HOST_USER = 'info@naafycontracting.com'
-EMAIL_HOST_PASSWORD = '@Burly1234@'
+EMAIL_HOST_PASSWORD = '@Naafy@1234@'
 
 
 

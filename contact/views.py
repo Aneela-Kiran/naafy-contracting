@@ -44,7 +44,7 @@ def contact_form(request):
                 f"Phone No: {phone_no}\n"
                 f"Message:\n{message}"
             )
-            recipient_list = ['sycode4j@gmail.com', 'm.hamza.codes@gmail.com', 'muh.ahmednoor@gmail.com'] 
+            recipient_list = ['sycode4j@gmail.com', 'hamza.tahir.cs@gmail.com'] 
             send_mail(email_subject, email_message, 'info@naafycontracting.com', recipient_list)
 
             messages.success(request, "Message Sent Successfully!")
@@ -53,6 +53,4 @@ def contact_form(request):
             messages.warning(request, "Please fill in all required fields.")
     else:
         # For GET requests, just render the form
-        pass
-    
-    return render(request, "contact/contact-us.html")
+        return render(request, "contact/contact-us.html")
