@@ -140,12 +140,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = 'useradmin:login'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'mail.naafycontracting.com'
-EMAIL_PORT = 465  # or 587 if you're using TLS
-EMAIL_USE_SSL = True  # Set to True for port 465, False for port 587
-# If using port 587, set EMAIL_USE_TLS to True and EMAIL_USE_SSL to False
-EMAIL_HOST_USER = 'info@naafycontracting.com'
-EMAIL_HOST_PASSWORD = '@Naafy@1234@'
+EMAIL_HOST = 'smtp.office365.com'  # Microsoft SMTP server
+EMAIL_PORT = 587  # Port for TLS
+EMAIL_USE_TLS = True  # Use TLS (Transport Layer Security)
+EMAIL_USE_SSL = False  # Do not use SSL
+EMAIL_HOST_USER = 'info@naafycontracting.ca'  # Your Microsoft email
+EMAIL_HOST_PASSWORD = 'Naafy@1234'  # Your Microsoft email password
+DEFAULT_FROM_EMAIL = 'info@naafycontracting.ca'  # Default "From" email address
 
 
 
