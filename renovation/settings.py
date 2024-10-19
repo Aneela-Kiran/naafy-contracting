@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-m%yb6bt7-ywnzoam04aam(m0oyy2fav_8s6e)xneh18$$vztq%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['naafycontracting.com', 'www.naafycontracting.com', 'naafycontracting.ca', 'www.naafycontracting.ca']
+ALLOWED_HOSTS = ['naafycontracting.com', 'www.naafycontracting.com', 'naafycontracting.ca', 'www.naafycontracting.ca', 'mail.naafycontracting.com']
 
 
 # Application definition
