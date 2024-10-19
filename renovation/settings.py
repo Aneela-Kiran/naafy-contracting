@@ -140,7 +140,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = 'useradmin:login'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.office365.com'  # Microsoft SMTP server
+EMAIL_HOST = 'localhost'  # Microsoft SMTP server
 EMAIL_PORT = 25  # Port for TLS
 EMAIL_USE_TLS = False  # Use TLS (Transport Layer Security)
 EMAIL_USE_SSL = False  # Do not use SSL
