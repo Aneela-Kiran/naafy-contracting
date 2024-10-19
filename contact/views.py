@@ -36,11 +36,11 @@ def contact_form(request):
             # Prepare the email content
             email_subject = "New Contact Form Submission"
             email_message = f"Name: {name}\nEmail: {email}\nPhone No: {phone_no}\nMessage:\n{message}"
-            recipient_list = ['sycode4j@gmail.com', 'hamza.tahir.cs@gmail.com']
+            recipient_list = ['info@naafycontracting.com', 'hamza.tahir.cs@gmail.com']
 
             try:
                 send_mail(
-                    email_subject, email_message, 'info@naafycontracting.ca', recipient_list, fail_silently=False
+                    email_subject, email_message, 'info@naafycontracting.com', recipient_list, fail_silently=False
                 )
                 messages.success(request, "Message Sent Successfully!")
             except Exception as e:
