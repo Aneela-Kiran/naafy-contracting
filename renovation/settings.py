@@ -140,14 +140,19 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = 'useradmin:login'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.office365.com'  # Microsoft SMTP server
-EMAIL_PORT = 465  # Port for TLS
-EMAIL_USE_TLS = True  # Use TLS (Transport Layer Security)
-EMAIL_USE_SSL = False  # Do not use SSL
-EMAIL_HOST_USER = 'info@naafycontracting.ca'  # Your Microsoft email
-EMAIL_HOST_PASSWORD = 'Naafy@1234'  # Your Microsoft email password
-DEFAULT_FROM_EMAIL = 'info@naafycontracting.ca'  # Default "From" email address
-EMAIL_TIMEOUT = 30  # 10 seconds timeout
+# EMAIL_HOST = 'smtp.office365.com'  # Microsoft SMTP server
+# EMAIL_PORT = 465  # Port for TLS
+# EMAIL_USE_TLS = True  # Use TLS (Transport Layer Security)
+# EMAIL_USE_SSL = False  # Do not use SSL
+# EMAIL_HOST_USER = 'info@naafycontracting.ca'  # Your Microsoft email
+# EMAIL_HOST_PASSWORD = 'Naafy@1234'  # Your Microsoft email password
+# Looking to send emails in production? Check out our Email API/SMTP product!
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_HOST_USER = '885121dbceffaf'
+EMAIL_HOST_PASSWORD = '8619a3601be199'
+EMAIL_PORT = '2525'
+# DEFAULT_FROM_EMAIL = 'info@naafycontracting.ca'  # Default "From" email address
+# EMAIL_TIMEOUT = 30  # 10 seconds timeout
 
 
 JAZZMIN_SETTINGS = {
