@@ -36,7 +36,7 @@ def contact_form(request):
             # Prepare the email content
             email_subject = "New Contact Form Submission"
             email_message = f"Name: {name}\nEmail: {email}\nPhone No: {phone_no}\nMessage:\n{message}"
-            recipient_list = ['info@naafycontracting.com', 'hamza.tahir.cs@gmail.com']
+            recipient_list = ['info@naafycontracting.ca', 'hamza.tahir.cs@gmail.com']
 
             try:
                 send_mail(
