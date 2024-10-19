@@ -141,8 +141,8 @@ LOGIN_URL = 'useradmin:login'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.office365.com'  # Microsoft SMTP server
-EMAIL_PORT = 587  # Port for TLS
-EMAIL_USE_TLS = True  # Use TLS (Transport Layer Security)
+EMAIL_PORT = 25  # Port for TLS
+EMAIL_USE_TLS = False  # Use TLS (Transport Layer Security)
 EMAIL_USE_SSL = False  # Do not use SSL
 EMAIL_HOST_USER = 'info@naafycontracting.ca'  # Your Microsoft email
 EMAIL_HOST_PASSWORD = 'Naafy@1234'  # Your Microsoft email password
