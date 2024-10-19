@@ -18,17 +18,14 @@ def contact_us(request):
 
 @csrf_protect
 def contact_form(request):
-    # Handle form submission
     if request.method == "POST":
-        # Fetching data from the request
         name = request.POST.get("name")
         email = request.POST.get("email")
         phone_no = request.POST.get("phone_no")
         message = request.POST.get("message")
 
-        # Simple validation
-        if name and email and message:  # You can add more validation if needed
-            # Create and save the Contact instance
+        if name and email and message:
+            # Save contact form details
             contact_instance = Contact.objects.create(
                 name=name,
                 email=email,
@@ -36,21 +33,22 @@ def contact_form(request):
                 message=message
             )
 
-            # Prepare email content
-            email_subject = f"New Contact Form Submission"
-            email_message = (
-                f"Name: {name}\n"
-                f"Email: {email}\n"
-                f"Phone No: {phone_no}\n"
-                f"Message:\n{message}"
-            )
-            recipient_list = ['sycode4j@gmail.com', 'hamza.tahir.cs@gmail.com'] 
-            send_mail(email_subject, email_message, 'info@naafycontracting.ca', recipient_list)
+            # Prepare the email content
+            email_subject = "New Contact Form Submission"
+            email_message = f"Name: {name}\nEmail: {email}\nPhone No: {phone_no}\nMessage:\n{message}"
+            recipient_list = ['sycode4j@gmail.com', 'hamza.tahir.cs@gmail.com']
 
-            messages.success(request, "Message Sent Successfully!")
-            return redirect("contact:contactus")  # Redirect after successful submission
+            try:
+                send_mail(
+                    email_subject, email_message, 'info@naafycontracting.ca', recipient_list, fail_silently=False
+                )
+                messages.success(request, "Message Sent Successfully!")
+            except Exception as e:
+                # Log or print the exception to help debug the issue
+                print(f"Error sending email: {e}")
+                messages.error(request, "There was an error sending your message. Please try again later.")
+
+            return redirect("contact:contactus")
         else:
             messages.warning(request, "Please fill in all required fields.")
-    else:
-        # For GET requests, just render the form
-        return render(request, "contact/contact-us.html")
+    return render(request, "contact/contact-us.html")

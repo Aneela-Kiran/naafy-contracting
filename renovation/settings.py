@@ -147,7 +147,7 @@ EMAIL_USE_SSL = False  # Do not use SSL
 EMAIL_HOST_USER = 'info@naafycontracting.ca'  # Your Microsoft email
 EMAIL_HOST_PASSWORD = 'Naafy@1234'  # Your Microsoft email password
 DEFAULT_FROM_EMAIL = 'info@naafycontracting.ca'  # Default "From" email address
-
+EMAIL_TIMEOUT = 30  # 10 seconds timeout
 
 
 JAZZMIN_SETTINGS = {
