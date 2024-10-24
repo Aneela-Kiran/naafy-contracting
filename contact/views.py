@@ -42,7 +42,7 @@ def contact_form(request):
 
             try:
                 EmailMessage(
-                    email_subject, email_message, from_email, recipient_list, fail_silently=False
+                    email_subject, email_message, from_email, recipient_list
                 )
                 messages.success(request, "Message Sent Successfully!")
             except Exception as e:
