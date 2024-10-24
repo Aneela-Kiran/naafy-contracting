@@ -144,9 +144,9 @@ EMAIL_HOST = 'mail.naafycontracting.com'
 EMAIL_PORT = 465  # Port for TLS
 EMAIL_USE_TLS = False  # Use TLS (Transport Layer Security)
 EMAIL_USE_SSL = True  # Do not use SSL
-EMAIL_HOST_USER = 'info@naafycontracting.com'  # Your Microsoft email
-EMAIL_HOST_PASSWORD = '@Naafy@1234@'  # Your Microsoft email password
-DEFAULT_FROM_EMAIL = 'info@naafycontracting.com'  # Default "From" email address
+EMAIL_HOST_USER = 'info@naafycontracting.com' 
+EMAIL_HOST_PASSWORD = '@Naafy@1234@'  
+DEFAULT_FROM_EMAIL = 'Naafy Contracting <info@naafycontracting.com>'
 EMAIL_TIMEOUT = 30  # 10 seconds timeout
 
 

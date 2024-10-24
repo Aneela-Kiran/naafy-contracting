@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
-from django.core.mail import send_mail
+from django.core.mail import EmailMessage
 from .models import Contact
 from .models import Reviews, ContactDetails
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_protect
+from django.conf import settings
 
 
 # Create your views here.
@@ -34,13 +35,14 @@ def contact_form(request):
             )
 
             # Prepare the email content
-            email_subject = "New Contact Form Submission"
+            email_subject = "Contact Form Submission"
             email_message = f"Name: {name}\nEmail: {email}\nPhone No: {phone_no}\nMessage:\n{message}"
-            recipient_list = ['info@naafycontracting.ca', 'hamza.tahir.cs@gmail.com']
+            from_email = settings.DEFAULT_FROM_EMAIL
+            recipient_list = ['info@naafycontracting.ca', 'hamza.tahir.cs@gmail.com', 'naeem.toheed70@gmail.com', 'muh.ahmednoor@gmail.com']
 
             try:
-                send_mail(
-                    email_subject, email_message, 'info@naafycontracting.com', recipient_list, fail_silently=False
+                EmailMessage(
+                    email_subject, email_message, from_email, recipient_list, fail_silently=False
                 )
                 messages.success(request, "Message Sent Successfully!")
             except Exception as e:
