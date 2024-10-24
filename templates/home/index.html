@@ -67,8 +67,8 @@
     <!-- About Section End -->
 
     <!-- Project Section Begin -->
-    <section class="project">
-        <div class="container-fluid">
+    <section class="project spad">
+        <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="section-title">
@@ -78,18 +78,15 @@
                 </div>
             </div>
             <div class="row">
-                <div class="project__slider owl-carousel">
-                    {% for s in services %}
-                        <div class="col-lg-3">
-                            <div class="project__slider__item set-bg" data-setbg="{{ s.image.url }}">
-                                <div class="project__slider__item__hover">
-                                    <a href="{% url 'services:service-projects' s.slug %}"><span>{{ s.name }}</span></a>
-                                    <h5>{{ s.description }}</h5>
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
+                {% for s in services %}
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="project__item">
+                        <a href="{% url "services:service-projects" s.slug %}"><img width="300px" height="220px" src="{{s.image.url}}" alt=""></a>
+                        <h4><a href="{% url "services:service-projects" s.slug %}">{{s.name}}</a></h4>
+                        <p>{{s.description}}</p>
+                    </div>
                 </div>
+                {% endfor %}
             </div>
         </div>        
     </section>
@@ -111,7 +108,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="services__item">
                         <div class="hover-effect">
-                            <img src="{{g.image.url}}" alt="">
+                            <img src="{{g.image.url}}" width="100px" height="150px" alt="">
                         </div>
                         <h4>{{g.title}}</h4>
                         <p>{{g.description}}</p>
