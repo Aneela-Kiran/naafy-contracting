@@ -83,7 +83,7 @@
                 </div>
             </div>
             <div class="row">
-                {% for s in services|slice=":6" %}
+                {% for s in services|slice:":6" %}
                 <div class="col-lg-3 col-md-3 col-sm-4">
                     <div class="project__item">
                         <a href="{% url "services:service-projects" s.slug %}"><img height='180px' width='100px' src="{{s.image.url}}" alt=""></a>
