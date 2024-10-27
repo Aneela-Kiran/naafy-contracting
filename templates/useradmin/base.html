@@ -56,12 +56,6 @@
                             <a href="{% url 'useradmin:project-list' %}">Projects List</a>
                         </div>
                     </li>
-                    <li class="menu-item {% url 'useradmin:gen-service-list' as gen_service_list %} {% if request.path == gen_service_list %}active{% endif %}">
-                        <a class="menu-link" href="{% url 'useradmin:gen-service-list' %}">
-                            <i class="icon fas fa-screwdriver"></i>
-                            <span class="text">General Services</span>
-                        </a>
-                    </li>
                     <li class="menu-item has-submenu">
                         <a class="menu-link" href="#">
                             <i class="icon fas fa-blog"></i>

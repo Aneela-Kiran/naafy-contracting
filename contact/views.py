@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.core.mail import EmailMessage
+from django.core.mail import send_mail
 from .models import Contact
 from .models import Reviews, ContactDetails
 from django.contrib import messages
@@ -41,8 +41,8 @@ def contact_form(request):
             recipient_list = ['info@naafycontracting.ca', 'hamza.tahir.cs@gmail.com', 'naeem.toheed70@gmail.com', 'muh.ahmednoor@gmail.com']
 
             try:
-                EmailMessage(
-                    email_subject, email_message, from_email, recipient_list
+                send_mail(
+                    email_subject, email_message, from_email, recipient_list, fail_silently=False,
                 )
                 messages.success(request, "Message Sent Successfully!")
             except Exception as e:

@@ -37,13 +37,6 @@ urlpatterns = [
     path("delete/<int:id>/", views.delete_contact_view, name="delete-contact"),
     path("contact/<int:id>/responded/", views.contact_response, name="contact-response"),
 
-    #General Services Section
-    path("general-services/", views.gen_service_list, name="gen-service-list"),
-    path("general-services/add/", views.add_general_service, name="add-gen-service"),
-    path('general-service/<int:service_id>/', views.general_service_detail, name='general-service-detail'),
-    path("general-services/edit/<int:id>/", views.edit_general_service, name="edit-gen-service"),
-    path("general-services/delete/<int:id>/", views.delete_gen_service, name="del-gen-service"),
-
     #Reviews Section
     path("reviews/", views.reviews_list, name="reviews-list"),
     path("add-reviews/", views.add_review, name="add-reviews"),

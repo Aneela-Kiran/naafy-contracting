@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from contact.models import Contact, Email, Reviews, ContactDetails
-from services.models import Service, Project, ProjectImages, GeneralContracting, BulletPoints
+from services.models import Service, Project, ProjectImages
 from blog.models import Blog, BlogImage, BlogReply
 from aboutus.models import About
-from .forms import ServiceForm, ProjectImagesForm, ProjectForm, GeneralServiceForm, ReviewsForm, BlogImagesForm, BlogForm, ProfileForm, ContactDetailsForm, AboutUsForm
+from .forms import ServiceForm, ProjectImagesForm, ProjectForm, ReviewsForm, BlogImagesForm, BlogForm, ProfileForm, ContactDetailsForm, AboutUsForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout, login, authenticate, get_user_model
 from django.contrib.auth.hashers import check_password
@@ -231,107 +231,6 @@ def contact_response(request, id):
 
     messages.success(request, "Changed to Responded!")
     return redirect("useradmin:contact-list")
-
-''' *******************General Services Section******************************* '''
-@login_required
-def gen_service_list(request):
-    gen_service = GeneralContracting.objects.all().order_by("-id")
-    paginator = Paginator(gen_service, 5)
-    page_number = request.GET.get("page")
-    page_obj = paginator.get_page(page_number)
-    context = {
-        "services" : page_obj,
-    }
-    return render(request, "useradmin/gen-service-list.html", context)
-
-def general_service_detail(request, service_id):
-    # Get the specific general service using the provided ID
-    gen_service = get_object_or_404(GeneralContracting, id=service_id)
-    
-    # Get all bullet points related to this service
-    bullet_points = BulletPoints.objects.filter(gen_service=gen_service)
-    
-    context = {
-        'gen_service': gen_service,
-        'bullet_points': bullet_points
-    }
-    
-    return render(request, 'useradmin/gen-service-detail.html', context)
-
-def add_general_service(request):
-    if request.method == "POST":
-        # Main service form
-        general_service_form = GeneralServiceForm(request.POST, request.FILES)
-        
-        if general_service_form.is_valid():
-            general_service = general_service_form.save()
-
-            
-            # Get the list of bullet points from the POST request (assuming field name is 'bullet_points')
-            bullet_points_text = request.POST.getlist('bullet_point')
-
-            # Loop through each bullet point and save it
-            for point_text in bullet_points_text:
-                if point_text:  # Ensure it's not empty
-                    BulletPoints.objects.create(gen_service=general_service, content=point_text)
-
-            return redirect('useradmin:gen-service-list')  # Redirect after success
-    else:
-        general_service_form = GeneralServiceForm()
-
-    context = {
-        'form': general_service_form,
-    }
-    return render(request, 'useradmin/add-gen-services.html', context)
-
-def edit_general_service(request, id):
-    # Fetch the existing general service and bullet points using the id
-    general_service = get_object_or_404(GeneralContracting, id=id)
-    bullet_points = BulletPoints.objects.filter(gen_service=general_service)
-
-    # Handle POST request for updating data
-    if request.method == "POST":
-        # Update the general service form
-        general_service_form = GeneralServiceForm(request.POST, request.FILES, instance=general_service)
-        
-        if general_service_form.is_valid():
-            # Save the updated general service
-            updated_service = general_service_form.save()
-
-            # Update bullet points
-            # Remove existing bullet points first
-            BulletPoints.objects.filter(gen_service=general_service).delete()
-
-            # Get the updated list of bullet points from the form
-            bullet_points_text = request.POST.getlist('bullet_point')
-
-            # Save the new bullet points
-            for point_text in bullet_points_text:
-                if point_text:
-                    BulletPoints.objects.create(gen_service=updated_service, content=point_text)
-
-            
-            messages.success(request, "Successfully Updated!")
-            return redirect('useradmin:gen-service-list')  # Redirect to the service list after updating
-
-    else:
-        # Prepopulate form with existing general service data
-        general_service_form = GeneralServiceForm(instance=general_service)
-
-    # Pass the existing bullet points to the template for prepopulation
-    context = {
-        'form': general_service_form,
-        'bullet_points': bullet_points,
-        'general_service' : general_service,
-    }
-    return render(request, 'useradmin/edit-gen-service.html', context)
-
-
-def delete_gen_service(request, id):
-    service = get_object_or_404(GeneralContracting, id=id)
-    service.delete()
-    messages.success(request, "Successfully Deleted!")
-    return redirect("useradmin:gen-service-list")
 
 ''' *******************Reviews Section******************************* '''
 @login_required

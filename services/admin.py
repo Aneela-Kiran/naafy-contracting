@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Service, Project, ProjectImages, GeneralContracting, BulletPoints
+from .models import Service, Project, ProjectImages
 # Register your models here.
 
 class ProjectImageInline(admin.TabularInline):
@@ -17,13 +17,6 @@ class ServiceAdmin(admin.ModelAdmin):
     search_fields = ('name',)
     prepopulated_fields = {"slug": ("name",)}
 
-class BulletPointInline(admin.TabularInline):
-    model = BulletPoints
-
-class GeneralContractingAdmin(admin.ModelAdmin):
-    inlines = [BulletPointInline]
-    list_display = ("title", "description", "image")
 
 admin.site.register(Service, ServiceAdmin)
 admin.site.register(Project, ProjectAdmin)
-admin.site.register(GeneralContracting, GeneralContractingAdmin)

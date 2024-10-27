@@ -1,10 +1,10 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Service, Project, ProjectImages, GeneralContracting
+from .models import Service, Project, ProjectImages
 from django.core.paginator import Paginator
 
 # Create your views here.
 def services_view(request):
-    services = Service.objects.all().order_by("id")
+    services = Service.objects.all().order_by("id").order_by("-id")
     paginator = Paginator(services, 6)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
@@ -31,13 +31,3 @@ def service_projects(request, slug):
     }
 
     return render(request, "services/service-projects.html", context)
-
-def general_service_view(request):
-    gen_services = GeneralContracting.objects.all().order_by("id")
-    paginator = Paginator(gen_services, 8)
-    page_number = request.GET.get("page")
-    page_obj = paginator.get_page(page_number)
-    context = {
-        "gen_services" : page_obj,
-    }
-    return render(request, "services/general-services.html", context)

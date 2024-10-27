@@ -1,5 +1,5 @@
 from django import forms
-from services.models import Service, Project, ProjectImages, GeneralContracting
+from services.models import Service, Project, ProjectImages
 from contact.models import Reviews, ContactDetails
 from blog.models import Blog, BlogImage
 from aboutus.models import About
@@ -150,44 +150,6 @@ class ProjectImagesForm(forms.ModelForm):
     class Meta:
         model = ProjectImages
         fields = ['image']
-
-class GeneralServiceForm(forms.ModelForm):
-    title = forms.CharField(
-        widget=forms.TextInput(attrs={"class": "form-control", "placeholder": "Enter Service Title"}),
-        min_length=5,  # Minimum length validation
-        max_length=100,  # Maximum length validation
-        error_messages={
-            'required': 'Service Title is required',
-            'min_length': 'Service Title must be at least 5 characters long',
-            'max_length': 'Service Title cannot exceed 100 characters',
-        }
-    )
-    
-    description = forms.CharField(
-        widget=forms.Textarea(attrs={"class": "form-control", "placeholder": "Enter Service Description"}),
-        min_length=10,  # Minimum length validation
-        error_messages={
-            'required': 'Description is required',
-            'min_length': 'Description must be at least 10 characters long',
-        }
-    )
-    
-    image = forms.ImageField(
-        widget=forms.FileInput(attrs={"class": "form-control"}),
-        error_messages={
-            'required': 'Service Image is required',
-            'invalid': 'Please upload a valid image file (JPEG, PNG)',
-        }
-    )
-
-    home_pg_display = forms.BooleanField(
-        widget=forms.CheckboxInput(attrs={"class": "form-check-input"}),
-        required=False,  # Make sure it's not required if it's optional
-    )
-
-    class Meta:
-        model = GeneralContracting
-        fields = ['title', 'description', 'image', 'home_pg_display']
 
 
 class ReviewsForm(forms.ModelForm):

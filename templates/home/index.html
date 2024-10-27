@@ -7,24 +7,24 @@
             <div class="hero__items set-bg" data-setbg="{% static 'img/hero/img-bg.jpg' %}">
                 <div class="hero__text">
                     <h2>Renovate. Refresh. Reveal.</h2>
-                    <a href="{% url 'services:services' %}" class="primary-btn">See Services</a>
+                    <a href="{% url 'services:services' %}" class="primary-btn text-white"><h4>See Services</h4></a>
                     <div class="hero__social">
-                        <a href="https://www.facebook.com/profile.php?id=61560731714423" target="blank"><i class="fa fa-facebook"></i></a>
-                        <a href="https://www.tiktok.com/@burly.contracting" target="blank"><i class="fa-brands fa-tiktok"></i></a>
-                        <a href="https://www.instagram.com/burly.contracting/?utm_source=ig_web_button_share_sheet" target="blank"><i class="fa fa-instagram"></i></a>
-                        <a href="#" target="blank"><i class="fa fa-linkedin"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61560731714423" target="blank"><i class="fa fa-facebook" style="font-size:2rem;"></i></a>
+                        <a href="https://www.tiktok.com/@burly.contracting" target="blank"><i class="fa-brands fa-tiktok" style="font-size:2rem;"></i></a>
+                        <a href="https://www.instagram.com/burly.contracting/?utm_source=ig_web_button_share_sheet" target="blank"><i class="fa fa-instagram" style="font-size:2rem;"></i></a>
+                        <a href="#" target="blank"><i class="fa fa-linkedin" style="font-size:2rem;"></i></a>
                     </div>
                 </div>
             </div>
             <div class="hero__items set-bg" data-setbg="{% static 'img/hero/img-bg.jpg' %}">
                 <div class="hero__text">
                     <h2>Dream It. Build It. Love It</h2>
-                    <a href="{% url 'services:services' %}" class="primary-btn">See Services</a>
+                    <a href="{% url 'services:services' %}" class="primary-btn text-white"><h4>See Services</h4></a>
                     <div class="hero__social">
-                        <a href="https://www.facebook.com/profile.php?id=61560731714423" target="blank"><i class="fa fa-facebook"></i></a>
-                        <a href="https://www.tiktok.com/@burly.contracting" target="blank"><i class="fa-brands fa-tiktok"></i></a>
-                        <a href="https://www.instagram.com/burly.contracting/?utm_source=ig_web_button_share_sheet" target="blank"><i class="fa fa-instagram"></i></a>
-                        <a href="#" target="blank"><i class="fa fa-linkedin"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61560731714423" target="blank"><i style="font-size:2rem;" class="fa fa-facebook"></i></a>
+                        <a href="https://www.tiktok.com/@burly.contracting" target="blank"><i style="font-size:2rem;" class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://www.instagram.com/burly.contracting/?utm_source=ig_web_button_share_sheet" target="blank"><i style="font-size:2rem;" class="fa fa-instagram"></i></a>
+                        <a href="#" target="blank"><i style="font-size:2rem;" class="fa fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>
@@ -70,18 +70,23 @@
     <section class="project spad">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center">
+                <div class="col-lg-9 col-md-8 col-sm-6">
                     <div class="section-title">
-                        <span>Our Service</span>
-                        <h2>Renovation Services</h2>
+                        <span>Services</span>
+                        <h2>Our Services</h2>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="latest__btn">
+                        <a href="{% url 'services:services' %}" class="primary-btn normal-btn">View All</a>
                     </div>
                 </div>
             </div>
             <div class="row">
-                {% for s in services %}
-                <div class="col-lg-4 col-md-4 col-sm-4">
+                {% for s in services|slice=":6" %}
+                <div class="col-lg-3 col-md-3 col-sm-4">
                     <div class="project__item">
-                        <a href="{% url "services:service-projects" s.slug %}"><img width="300px" height="220px" src="{{s.image.url}}" alt=""></a>
+                        <a href="{% url "services:service-projects" s.slug %}"><img height='180px' width='100px' src="{{s.image.url}}" alt=""></a>
                         <h4><a href="{% url "services:service-projects" s.slug %}">{{s.name}}</a></h4>
                         <p>{{s.description}}</p>
                     </div>
@@ -95,27 +100,6 @@
     <!-- Services Section Begin -->
     <section class="services spad">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <span>General Services</span>
-                        <h2>OUR CONTRACTING SERVICES</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                {% for g in gen_services %}
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="services__item">
-                        <div class="hover-effect">
-                            <img src="{{g.image.url}}" width="100px" height="150px" alt="">
-                        </div>
-                        <h4>{{g.title}}</h4>
-                        <p>{{g.description}}</p>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
             <div class="counter__content">
                 <div class="row">
                     <div class="col-lg-4 col-md-6 col-sm-6 stats-container">
@@ -284,8 +268,8 @@
             <div class="row">
                 <div class="col-lg-9 col-md-8 col-sm-6">
                     <div class="section-title">
-                        <span>Latest News</span>
-                        <h2>From our blog</h2>
+                        <span>Latest Projects</span>
+                        <h2>From our Projects</h2>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6">

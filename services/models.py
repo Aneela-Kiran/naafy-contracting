@@ -18,21 +18,6 @@ class Service(models.Model):
     def __str__(self) -> str:
         return self.name
     
-class GeneralContracting(models.Model):
-    title = models.CharField(max_length=100)
-    description = models.CharField(max_length=250)
-    image = models.ImageField(upload_to="general-services/", default="gen_service.png")
-    home_pg_display = models.BooleanField(default=False)
-
-    def __str__(self):
-        return self.title
-
-class BulletPoints(models.Model):
-    gen_service = models.ForeignKey(GeneralContracting, on_delete=models.CASCADE, related_name="bullet_points")
-    content = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.content
 
 class Project(models.Model):
     service = models.ForeignKey(Service, on_delete=models.CASCADE, related_name='projects')
