@@ -129,8 +129,8 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 .header__logo img {
-    max-width: 100px;
-    margin-left: 20px;
+    max-width: 120px;
+    margin-left: 10px;
 }
 .header__widget {
     display: flex;
