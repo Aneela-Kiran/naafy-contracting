@@ -106,7 +106,7 @@
                 {% for s in services|slice:":6" %}
                 <div class="col-lg-3 col-md-3 col-sm-3">
                     <div class="project__item">
-                        <a href="{% url "services:service-projects" s.slug %}"><img height='200px' width='100px' src="{{s.image.url}}" alt=""></a>
+                        <a href="{% url "services:service-projects" s.slug %}"><img height='150px' width='80px' src="{{s.image.url}}" alt=""></a>
                         <h4><a href="{% url "services:service-projects" s.slug %}">{{s.name}}</a></h4>
                         <p>{{s.description}}</p>
                     </div>
