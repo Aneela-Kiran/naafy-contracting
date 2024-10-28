@@ -4,9 +4,9 @@
     <!-- Hero Section Begin -->
     <section class="hero">
         <div class="hero__slider owl-carousel">
-            <div class="hero__items set-bg" data-setbg="{% static 'img/hero/img-bg.jpg' %}">
+            <div class="hero__items set-bg" data-setbg="{% static 'img/hero/hero-1.png' %}">
                 <div class="hero__text">
-                    <h2>Renovate. Refresh. Reveal.</h2>
+                    <h2 class="text-white">Renovate. Refresh. Reveal.</h2>
                     <a href="{% url 'services:services' %}" class="primary-btn text-white"><h4>See Services</h4></a>
                     <div class="hero__social">
                         <a href="https://www.facebook.com/profile.php?id=61560731714423" target="blank"><i class="fa fa-facebook" style="font-size:2rem;"></i></a>
@@ -16,9 +16,33 @@
                     </div>
                 </div>
             </div>
-            <div class="hero__items set-bg" data-setbg="{% static 'img/hero/img-bg.jpg' %}">
+            <div class="hero__items set-bg" data-setbg="{% static 'img/hero/hero-2.jpg' %}">
                 <div class="hero__text">
-                    <h2>Dream It. Build It. Love It</h2>
+                    <h2 class="text-white">Dream It. Build It. Love It</h2>
+                    <a href="{% url 'services:services' %}" class="primary-btn text-white"><h4>See Services</h4></a>
+                    <div class="hero__social">
+                        <a href="https://www.facebook.com/profile.php?id=61560731714423" target="blank"><i style="font-size:2rem;" class="fa fa-facebook"></i></a>
+                        <a href="https://www.tiktok.com/@burly.contracting" target="blank"><i style="font-size:2rem;" class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://www.instagram.com/burly.contracting/?utm_source=ig_web_button_share_sheet" target="blank"><i style="font-size:2rem;" class="fa fa-instagram"></i></a>
+                        <a href="#" target="blank"><i style="font-size:2rem;" class="fa fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero__items set-bg" data-setbg="{% static 'img/hero/hero-3.jpg' %}">
+                <div class="hero__text">
+                    <h2 class="text-white">Visualize. Realize. Relax.</h2>
+                    <a href="{% url 'services:services' %}" class="primary-btn text-white"><h4>See Services</h4></a>
+                    <div class="hero__social">
+                        <a href="https://www.facebook.com/profile.php?id=61560731714423" target="blank"><i style="font-size:2rem;" class="fa fa-facebook"></i></a>
+                        <a href="https://www.tiktok.com/@burly.contracting" target="blank"><i style="font-size:2rem;" class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://www.instagram.com/burly.contracting/?utm_source=ig_web_button_share_sheet" target="blank"><i style="font-size:2rem;" class="fa fa-instagram"></i></a>
+                        <a href="#" target="blank"><i style="font-size:2rem;" class="fa fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero__items set-bg" data-setbg="{% static 'img/hero/hero-4.jpg' %}">
+                <div class="hero__text">
+                    <h2 class="text-white">Envision. Create. Enjoy.</h2>
                     <a href="{% url 'services:services' %}" class="primary-btn text-white"><h4>See Services</h4></a>
                     <div class="hero__social">
                         <a href="https://www.facebook.com/profile.php?id=61560731714423" target="blank"><i style="font-size:2rem;" class="fa fa-facebook"></i></a>
@@ -42,14 +66,10 @@
                     <div class="about__text">
                         <div class="section-title">
                             <span>who are we</span>
-                            <h2>We propose and discuss design rules</h2>
+                            <h2>Book Your Free Renovation Consultation</h2>
                         </div>
                         <div class="about__para__text">
-                            <p>Metasurfaces are generally designed by placing scatterers in periodic or pseudo-periodic
-                                grids. We propose and discuss design rules for functional metasurfaces with randomly
-                            placed.</p>
-                            <p>Anisotropic elements that randomly sample. Quisque sit amet nisl ante. Fusce lacinia non
-                            tellus id gravida. Cras neque dolor, volutpat et hendrerit et.</p>
+                            <p>Ready to transform your space? Let's make your dream renovation a reality! Schedule a free consultation with us today, and we'll bring your vision to life with expert craftsmanship and attention to detail. Click below to book a time that works best for you!</p>
                         </div>
                         <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1isQSh3PDgXY7yAbLyzLxUaQf5fR7AGu3FnTDHQRskadCTIaaAowoO0hHEY5P9lE-bho6id74d?gv=true" target="_blank" class="primary-btn normal-btn">Schedule a Meeting</a>
                     </div>
@@ -84,9 +104,9 @@
             </div>
             <div class="row">
                 {% for s in services|slice:":6" %}
-                <div class="col-lg-3 col-md-3 col-sm-4">
+                <div class="col-lg-3 col-md-3 col-sm-3">
                     <div class="project__item">
-                        <a href="{% url "services:service-projects" s.slug %}"><img height='180px' width='100px' src="{{s.image.url}}" alt=""></a>
+                        <a href="{% url "services:service-projects" s.slug %}"><img height='200px' width='100px' src="{{s.image.url}}" alt=""></a>
                         <h4><a href="{% url "services:service-projects" s.slug %}">{{s.name}}</a></h4>
                         <p>{{s.description}}</p>
                     </div>
@@ -155,7 +175,7 @@
                         <div class="testimonial__item">
                             <div class="row d-flex justify-content-center">
                                 <div class="col-xl-9 col-lg-10">
-                                    <p>"Naafy Contracting Inc. did an excellent job legalizing my basement. Naeem Toheed and his team were professional, efficient, and handled everything smoothly, from permits to final touches. The project was completed on time, with great attention to detail. Highly recommend Naafy Contracting for any renovation needs!"
+                                    <p>"Naafy Contracting legalized my basement efficiently. Naeem Toheed and his team were professional, timely, and detail-oriented. Highly recommend!"
                                         — Umair Shahid.</p>
                                 </div>
                             </div>
@@ -163,7 +183,7 @@
                         <div class="testimonial__item">
                             <div class="row d-flex justify-content-center">
                                 <div class="col-xl-9 col-lg-10">
-                                    <p>"Naafy Contracting Inc. did a great job installing new kitchen cabinets and an island in my home. Naeem Toheed and his team were quick, professional, and made sure everything looked perfect. I'm very happy with the work and would recommend them to anyone looking for quality renovations!"
+                                    <p>"Naafy Contracting installed my kitchen cabinets and island. Naeem Toheed and his team were quick, professional, and made sure everything was perfect. Very happy with their work and highly recommend them!"
                                         — Syed Hammadullah Ahmed.</p>
                                 </div>
                             </div>
@@ -171,7 +191,7 @@
                         <div class="testimonial__item">
                             <div class="row d-flex justify-content-center">
                                 <div class="col-xl-9 col-lg-10">
-                                    <p>"Naafy Contracting Inc. did an excellent job with the flooring throughout my house and building the staircase for both the main floor and the basement. Naeem Toheed and his team were professional, efficient, and delivered top-quality work. The floors and staircases turned out beautifully, and the whole project was completed on time. I highly recommend Naafy Contracting for any home renovationwork!"
+                                    <p>"Naafy Contracting did a great job on my flooring and staircase. Naeem Toheed and his team were efficient and professional. Highly recommend!"
                                         — Aryan.</p>
                                 </div>
                             </div>
@@ -187,7 +207,7 @@
                         <div class="testimonial__item">
                             <div class="row d-flex justify-content-center">
                                 <div class="col-lg-9">
-                                    <p>"Naafy Contracting Inc. did an amazing job renovating my washroom. Naeem Toheed and his team were professional, efficient, and delivered high-quality work. They paid great attention to detail, and the project was completed on time and within budget. I’m extremely happy with the results and highly recommend them for any renovation projects!"
+                                    <p>"Naafy Contracting renovated my washroom efficiently. Naeem Toheed and his team were professional, detail-oriented, and completed the project on time and within budget. Very happy with the results and highly recommend them!"
                                         — Keerthikan Jegan.</p>
                                 </div>
                             </div>

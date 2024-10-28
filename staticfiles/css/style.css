@@ -433,7 +433,7 @@ ol {
 }
 
 .hero__items {
-	height: 960px;
+	height: 650px;
 	padding: 0 40px;
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -447,7 +447,7 @@ ol {
 }
 
 .hero__text {
-	max-width: 820px;
+	max-width: 720px;
 	text-align: center;
 }
 
