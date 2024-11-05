@@ -8,10 +8,6 @@
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
                         <h2>Our Projects</h2>
-                        <div class="breadcrumb__links">
-                            <a href="{% url "home:home" %}">Home</a>
-                            <span>Projects</span>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -30,9 +26,6 @@
                         {% else %}
                             {% for b in page_obj %}
                                 <div class="blog__item">
-                                    <ul>
-                                        <li>{{b.created_at}}</li>
-                                    </ul>
                                     <h2>{{b.title}}</h2>
                                     <div class="hover-effect">
                                         <a href="{% url 'blog:blog-details' b.slug %}"><img src="{{b.image.url}}" alt=""></a>
@@ -69,10 +62,6 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="blog__sidebar">
-                        <div class="blog__sidebar__about">
-                            <img class="author__pic" src="{% static 'img/naeem_toheed.jpg' %}" alt="">
-                            <p>Discover inspiring stories and insights from our projects.</p>
-                        </div>
                         <div class="blog__item__quote">
                             <p>“Without question this is the stager you want to use! Jennifer staged a hard to sell home
                             for me and we sold it fast! …. Jennifer made it possible.”</p>

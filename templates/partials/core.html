@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="{% static 'img/nc-logo.png' %}" />
+    <link rel="icon" type="image/x-icon" href="{% static 'img/logo.png' %}" />
 
     <!-- Add the Font Awesome CSS file -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -35,7 +35,7 @@
     <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__logo">
-            <a href="{% url "home:home" %}"><img src="{% static 'img/final-logo.png' %}" width="100px" alt=""></a>
+            <a href="{% url "home:home" %}"><img src="{% static 'img/logo.png' %}" width="100px" alt=""></a>
         </div>
         <div id="mobile-menu-wrap"></div>
         <div class="offcanvas__widget">
@@ -52,8 +52,9 @@
                 <div class="col-lg-3">
                     <div class="header__logo">
                         <a href="{% url 'home:home' %}">
-                            <img src="{% static 'img/final-logo.png' %}" alt="Logo">
+                            <img src="{% static 'img/logo.png' %}" alt="Logo">
                         </a>
+                        <span class="header__title">Naafy Contracting</span>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -127,7 +128,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 stats-container">
                     <div class="footer__about">
                         <div class="footer__logo">
-                            <a href="{% url "home:home" %}"><img src="{% static 'img/nc-logo.png' %}" width="120px" alt=""></a>
+                            <a href="{% url "home:home" %}"><img src="{% static 'img/logo.png' %}" width="80px" alt="Naafy Contracting"></a>
                         </div>
                         <div class="footer__social">
                             <a href="https://www.facebook.com/profile.php?id=61560731714423" target="_blank"><i class="fa fa-facebook" style="font-size: 2rem;"></i></a>

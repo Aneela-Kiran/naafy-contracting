@@ -8,10 +8,6 @@
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
                         <h2>About Us</h2>
-                        <div class="breadcrumb__links">
-                            <a href="{% url "home:home" %}">Home</a>
-                            <span>About Us</span>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -26,19 +22,15 @@
                 <div class="col-lg-4 col-md-4">
                     <div class="about__text about__page__text">
                         <div class="section-title">
-                            <span>who are we</span>
-                            <h2>About Us</h2>
+                            <h2>Who are We</h2>
                         </div>
                         {% for a in about %}
-                        <div class="about__para__text">
-                            <p style="font-size:16px">{{a.description}}</p>
-                        </div>
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-8">
                     <div class="about__page__services d-flex justify-content-center">
                         <div class="about__page__services__text text-center">
-                            <p style="font-size:18px;">{{ a.company_info }}</p>
+                            <p style="font-size:20px;">{{a.description}}</p>
                         </div>
                     </div>
                 </div>                

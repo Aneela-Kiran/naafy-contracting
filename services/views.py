@@ -4,12 +4,9 @@ from django.core.paginator import Paginator
 
 # Create your views here.
 def services_view(request):
-    services = Service.objects.all().order_by("id").order_by("-id")
-    paginator = Paginator(services, 6)
-    page_number = request.GET.get("page")
-    page_obj = paginator.get_page(page_number)
+    services = Service.objects.all()
     context = {
-        "services" : page_obj,
+        "services" : services,
     }
     return render(request, "services/services.html", context)
 

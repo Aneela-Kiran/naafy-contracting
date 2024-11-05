@@ -67,67 +67,29 @@
                         <h2>Our Services</h2>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+            </div>
+            <div class="row">
+                {% for s in services|slice:":8" %}
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                    <div class="project__item">
+                        <img src="{{ s.image.url }}" alt="">
+                        <h4>{{ s.name }}</h4>
+                        <p>{{ s.description }}</p>
+                    </div>
+                </div>                
+                {% endfor %}
+            </div>
+            <!-- Centered View All button -->
+            <div class="row justify-content-center">
+                <div class="col-lg-3 col-md-4 col-sm-6 text-center">
                     <div class="latest__btn">
                         <a href="{% url 'services:services' %}" class="primary-btn normal-btn">View All</a>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                {% for s in services|slice:":6" %}
-                <div class="col-lg-3 col-md-3 col-sm-3">
-                    <div class="project__item">
-                        <a href="{% url "services:service-projects" s.slug %}"><img height='150px' width='80px' src="{{s.image.url}}" alt=""></a>
-                        <h4><a href="{% url "services:service-projects" s.slug %}">{{s.name}}</a></h4>
-                        <p>{{s.description}}</p>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
         </div>        
     </section>
     <!-- Project Section End -->
-
-    <!-- Services Section Begin -->
-    <section class="services mt-8 pb-100">
-        <div class="container">
-            <div class="counter__content">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-6 stats-container">
-                        <div class="counter__item">
-                            <div class="counter__item__number">
-                                <h2 class="count">30</h2>
-                            </div>
-                            <div class="counter__item__text">
-                                <h5>Projects<br /> Completed</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 stats-container">
-                        <div class="counter__item">
-                            <div class="counter__item__number">
-                                <h2 class="count">53</h2>
-                            </div>
-                            <div class="counter__item__text">
-                                <h5>Happy<br /> Clients</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 stats-container">
-                        <div class="counter__item">
-                            <div class="counter__item__number">
-                                <h2 class="count">34</h2>
-                            </div>
-                            <div class="counter__item__text">
-                                <h5>Cups Of<br /> Coffee</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Services Section End -->
 
     <!-- Testimonial Section Begin -->
     <section class="testimonial spad set-bg" data-setbg="{% static 'img/testimonial/testimonial-bg.jpg' %}">
