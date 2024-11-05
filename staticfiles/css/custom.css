@@ -41,7 +41,7 @@
     width: 100%;
     aspect-ratio: 1 / 1; /* Maintains a square shape */
     object-fit: cover; /* Ensures the image fills the container without stretching */
-    max-width: 150px; /* Limits the size of the image */
+    max-width: 200px; /* Limits the size of the image */
     margin-bottom: 10px; /* Adds space below the image */
 }
 
