@@ -59,11 +59,11 @@
                     <li class="menu-item has-submenu">
                         <a class="menu-link" href="#">
                             <i class="icon fas fa-blog"></i>
-                            <span class="text">Blogs</span>
+                            <span class="text">Projects</span>
                         </a>
                         <div class="submenu">
-                            <a href="{% url "useradmin:blogs-list" %}">Blog List</a>
-                            <a href="{% url "useradmin:blog-reply-list" %}">Blog Replies</a>
+                            <a href="{% url "useradmin:blogs-list" %}">Project List</a>
+                            <a href="{% url "useradmin:blog-reply-list" %}">Project Replies</a>
                         </div>
                     </li>
                     <li class="menu-item {% url 'useradmin:email-list' as email_list_url %} {% if request.path == email_list_url %}active{% endif %}">
