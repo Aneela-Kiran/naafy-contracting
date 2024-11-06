@@ -45,10 +45,10 @@ urlpatterns = [
     path("delete-review/<int:id>/", views.delete_review, name="delete-review"),
 
     #Blogs Section
-    path("blogs-list/", views.blog_list_view, name="blogs-list"),
-    path("add-blog/", views.add_blog_view, name="add-blog"),
-    path("edit-blog/<slug:slug>/", views.edit_blog_view, name="edit-blog"),
-    path("blogs-details/<slug:slug>/", views.blog_details, name="blog-details"),
+    path("projects-list/", views.blog_list_view, name="blogs-list"),
+    path("add-project/", views.add_blog_view, name="add-blog"),
+    path("edit-project/<slug:slug>/", views.edit_blog_view, name="edit-blog"),
+    path("project-details/<slug:slug>/", views.blog_details, name="blog-details"),
     path("delete/<slug:slug>/", views.delete_blog, name="delete-blog"),
 
     #Blog Replies Section

@@ -12,7 +12,7 @@
         <meta property="og:url" content="" />
         <meta property="og:image" content="" />
         <!-- Favicon -->
-        <link rel="icon" type="image/x-icon" href="{% static 'img/nc-logo.png' %}" />
+        <link rel="icon" type="image/x-icon" href="{% static 'img/logo.png' %}" />
         <!-- Template CSS -->
         <link href="{% static 'assets1/css/main.css' %}" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
@@ -27,7 +27,7 @@
         <aside class="navbar-aside" id="offcanvas_aside">
             <div class="d-flex justify-content-center align-items-center">
                 <a href="{% url 'home:home' %}" target="_blank" class="brand-wrap">
-                    <img src="{% static 'img/nc-logo.png' %}" class="logo mr-100 mt-3" width="70px" alt="Naafy Dashboard" />
+                    <img src="{% static 'img/logo.png' %}" class="logo mr-100 mt-3" width="70px" alt="Naafy Dashboard" />
                 </a>
                 <div class="mx-3">
                     <button class="btn btn-icon btn-aside-minimize">
@@ -93,12 +93,6 @@
                                 </div>
                         </li>
                             {% endif %}
-                    <li class="menu-item {% url 'useradmin:reviews-list' as reviews_url %} {% if request.path == reviews_url %}active{% endif %} ">
-                        <a class="menu-link" href="{% url "useradmin:reviews-list" %}">
-                            <i class="icon material-icons md-comment"></i>
-                            <span class="text">Reviews</span>
-                        </a>
-                    </li>
                 </ul>
                 <hr />
                 <ul class="menu-aside">
