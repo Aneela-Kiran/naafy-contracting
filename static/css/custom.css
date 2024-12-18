@@ -133,11 +133,11 @@
     z-index: 10;
     transition: background-color 0.3s;
     padding: 10px 0; /* Increased padding for taller navbar */
-    background-color: grey;
+    background-color: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 .header.scrolled {
-    background-color: grey;
+    background-color: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 .header__logo {
@@ -149,8 +149,8 @@
     margin-right: 10px;
 }
 .header__title {
-    font-size: 24px;
-    font-family: cursive;
+    font-size: 28px;
+    font-weight: bold;
     color: black;
 }
 .header__widget {
