@@ -73,7 +73,7 @@
                     <div class="project__item">
                         <img src="{{ s.image.url }}" alt="">
                         <h4>{{ s.name }}</h4>
-                        <p class="text-justify">{{ s.description|truncatechars:30 }}</p>
+                        <p class="text-justify">{{ s.description|truncatechars:50 }}</p>
                     </div>
                 </div>                
                 {% endfor %}
@@ -90,7 +90,12 @@
     </section>
     <!-- Project Section End -->
 
-    <section class="contact mt-5">
+    <section class="contact">
+        <div class="map">
+            <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d184985.37779487704!2d-79.6595002820143!3d43.57745632484545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b469fe76b05b7%3A0x3146cbed75966db!2sMississauga%2C%20ON%2C%20Canada!5e0!3m2!1sen!2s!4v1734528172074!5m2!1sen!2s"
+            height="460" style="border:0;" allowfullscreen=""></iframe>
+        </div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-5">
