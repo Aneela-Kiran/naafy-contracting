@@ -171,10 +171,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="row d-flex justify-content-center">
-                    <div class="col-xl-6 col-lg-8 col-md-7 col-sm-10 ">
-                        <div class="testimonial__client">
-                            {% for rev in reviews %}
+                {% for rev in reviews %}
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-xl-6 col-lg-8 col-md-7 col-sm-10 ">
+                            <div class="testimonial__client">
                                 <div class="testimonial__client__item add">
                                     <div class="testimonial__client__pic">
                                         {% if rev.user_image %}
@@ -187,10 +187,10 @@
                                         <h5>{{rev.user_name}}</h5>
                                     </div>
                                 </div>
-                            {% endfor %}
+                            </div>
                         </div>
                     </div>
-                </div>
+                {% endfor %}
             {% else %}
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12">
