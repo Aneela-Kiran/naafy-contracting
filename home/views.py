@@ -13,6 +13,7 @@ def home_page(request):
     context = {
         'services' : services,
         'blogs' : blogs,
+        'reviews' : reviews,
     }
 
     return render(request, "home/index.html", context)
