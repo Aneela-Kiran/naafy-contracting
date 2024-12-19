@@ -155,48 +155,50 @@
                 </div>
             </div>
             {% if reviews %}
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="testimonial__carousel">
-                        {% for r in reviews %}
-                        <div class="testimonial__item">
-                            <div class="row d-flex justify-content-center">
-                                <div class="col-xl-9 col-lg-10">
-                                    <p>"{{ r.review }}"
-                                        — {{ r.user_name }}.</p>
-                                </div>
-                            </div>
-                            <div class="row d-flex justify-content-center mt-4">
-                                <div class="col-xl-6 col-lg-8 col-md-7 col-sm-10">
-                                    <div class="testimonial__client">
-                                        <div class="testimonial__client__item add">
-                                            <div class="testimonial__client__pic">
-                                                {% if r.user_image and r.user_image.url %}
-                                                <img src="{{ r.user_image.url }}" alt="User Image">
-                                                {% else %}
-                                                <img src="https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1095249842.jpg" alt="Default User Image">
-                                                {% endif %}
-                                            </div>
-                                            <div class="testimonial__client__text">
-                                                <h5>{{ r.user_name }}</h5>
-                                            </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="testimonial__carousel">
+                            {% for r in reviews %}
+                                <div class="testimonial__item">
+                                    <div class="row d-flex justify-content-center">
+                                        <div class="col-xl-9 col-lg-10">
+                                            <p>"{{r.review}}"
+                                                — {{r.user_name}}.</p>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            {% endfor %}
                         </div>
-                        {% endfor %}
                     </div>
                 </div>
-            </div>
+                <div class="row d-flex justify-content-center">
+                    <div class="col-xl-6 col-lg-8 col-md-7 col-sm-10 ">
+                        <div class="testimonial__client">
+                            {% for rev in reviews %}
+                                <div class="testimonial__client__item add">
+                                    <div class="testimonial__client__pic">
+                                        {% if rev.user_image.url %}
+                                        <img src="{{rev.user_image.url}}" alt="User Image">
+                                        {% else %}
+                                        <img src="https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1095249842.jpg" alt="">
+                                        {% endif %}
+                                    </div>
+                                    <div class="testimonial__client__text">
+                                        <h5>{{rev.user_name}}</h5>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
             {% else %}
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="justify-content-center">
-                        <h2>No Reviews Yet!!</h2>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="justify-content-center">
+                            <h2>No Reviews Yet!!</h2>
+                        </div>
                     </div>
                 </div>
-            </div>
             {% endif %}
         </div>
     </section>
