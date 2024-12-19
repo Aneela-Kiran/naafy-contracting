@@ -426,6 +426,8 @@ class AboutUsForm(forms.ModelForm):
         fields = "__all__"
 
 class QuoteForm(forms.ModelForm):
+    quote = forms.CharField(widget=forms.TextInput(attrs={"class":"form-control", "placeholder":"Enter Quote"}))
+    person_name = forms.CharField(widget=forms.TextInput(attrs={"class":"form-control", "placeholder":"Who Said It?"}))
     class Meta:
         model = Quotation
         fields = ['quote', 'person_name']
