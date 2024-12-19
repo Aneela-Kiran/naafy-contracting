@@ -1,7 +1,7 @@
 from django import forms
 from services.models import Service, Project, ProjectImages
 from contact.models import Reviews, ContactDetails
-from blog.models import Blog, BlogImage
+from blog.models import Blog, BlogImage, Quotation
 from aboutus.models import About
 from .models import Profile
 from django.core.exceptions import ValidationError
@@ -424,3 +424,8 @@ class AboutUsForm(forms.ModelForm):
     class Meta:
         model = About
         fields = "__all__"
+
+class QuoteForm(forms.ModelForm):
+    class Meta:
+        model = Quotation
+        fields = ['quote', 'person_name']

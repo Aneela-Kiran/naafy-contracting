@@ -47,6 +47,7 @@ urlpatterns = [
     #Blogs Section
     path("projects-list/", views.blog_list_view, name="blogs-list"),
     path("add-project/", views.add_blog_view, name="add-blog"),
+    path('edit-quote/', views.quote_view, name="quote-view"),
     path("edit-project/<slug:slug>/", views.edit_blog_view, name="edit-blog"),
     path("project-details/<slug:slug>/", views.blog_details, name="blog-details"),
     path("delete/<slug:slug>/", views.delete_blog, name="delete-blog"),

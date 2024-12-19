@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from contact.models import Contact, Email, Reviews, ContactDetails
 from services.models import Service, Project, ProjectImages
-from blog.models import Blog, BlogImage, BlogReply
+from blog.models import Blog, BlogImage, BlogReply, Quotation
 from aboutus.models import About
-from .forms import ServiceForm, ProjectImagesForm, ProjectForm, ReviewsForm, BlogImagesForm, BlogForm, ProfileForm, ContactDetailsForm, AboutUsForm
+from .forms import QuoteForm, ServiceForm, ProjectImagesForm, ProjectForm, ReviewsForm, BlogImagesForm, BlogForm, ProfileForm, ContactDetailsForm, AboutUsForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout, login, authenticate, get_user_model
 from django.contrib.auth.hashers import check_password
@@ -492,3 +492,17 @@ def about_us_view(request):
     else:
         form = AboutUsForm(instance=about_us)
     return render(request, "useradmin/about-us.html", {"form" : form})
+
+@login_required
+def quote_view(request):
+    quote = Quotation.objects.all().first()
+    if request.method == "POST":
+        form = QuoteForm(request.POST, instance=quote)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Updated Successfully!")
+            return redirect("useradmin:quote-view")
+        messages.warning(request, "Please Try Again!")
+    else:
+        form = QuoteForm(instance=quote)
+    return render(request, "useradmin/quote.html", {"form" : form})

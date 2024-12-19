@@ -46,3 +46,12 @@ class BlogReply(models.Model):
 
     def __str__(self):
         return f"{self.name} sent a reply on {self.blog.title}"
+    
+class Quotation(models.Model):
+    quote = models.CharField(max_length=300)
+    person_name = models.CharField(max_length=300)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.quote

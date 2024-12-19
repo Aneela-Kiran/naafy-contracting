@@ -9,10 +9,8 @@ from django.conf import settings
 
 # Create your views here.
 def contact_us(request):
-    reviews = Reviews.objects.all().order_by("-id")
     contact_details = ContactDetails.objects.all().first()
     context = {
-        "reviews" : reviews,
         "contact_details" : contact_details,
     }
     return render(request, "contact/contact-us.html", context)

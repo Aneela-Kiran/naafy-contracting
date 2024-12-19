@@ -1,15 +1,17 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Blog, BlogImage, BlogReply
+from .models import Blog, BlogImage, BlogReply, Quotation
 from django.core.paginator import Paginator
 from django.views.decorators.csrf import csrf_protect
 # Create your views here.
 def blog_list(request):
     blogs = Blog.objects.all().order_by("-id")
+    quote = Quotation.objects.all().first()
     paginator = Paginator(blogs, 1)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
     context = {
         "page_obj" : page_obj,
+        "quote" : quote,
     }
     return render(request, "blog/blog.html", context)
 

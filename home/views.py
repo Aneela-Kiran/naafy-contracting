@@ -1,12 +1,14 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from .forms import EmailForm
+from contact.models import Reviews
 from services.models import Service
 from blog.models import Blog
 
 # Create your views here.
 def home_page(request):
     services = Service.objects.all()
+    reviews = Reviews.objects.all().order_by("-id")
     blogs = Blog.objects.filter(latest=True)
     context = {
         'services' : services,

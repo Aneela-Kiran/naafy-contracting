@@ -46,7 +46,7 @@
                                     <tbody>
                                         {% for r in reviews %}
                                             <tr>
-                                                <td><a href="{% url "useradmin:review-detail" r.id %}" class="fw-bold">#{{r.id}}</a></td>
+                                                <td><a href="{% url 'useradmin:review-detail' r.id %}" class="fw-bold">#{{r.id}}</a></td>
                                                 <td>{{r.user_name}}</td>
                                                 <td>{{r.review|truncatechars:100}}</td>
                                                 <td>
