@@ -172,14 +172,6 @@ class ReviewsForm(forms.ModelForm):
             'min_length': 'Review must be at least 10 characters long',
         }
     )
-    
-    user_image = forms.ImageField(
-        widget=forms.FileInput(attrs={"class": "form-control"}),
-        required=False,
-        error_messages={
-            'invalid': 'Please upload a valid image file (JPEG, PNG)',
-        }
-    )
 
     class Meta:
         model = Reviews

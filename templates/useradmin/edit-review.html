@@ -32,27 +32,6 @@
                                         <label class="form-label">Review</label>
                                         {{form.review}}
                                     </div>
-                                    <div class="row">
-                                        <!-- Current Images -->
-                                        <div class="mb-4">
-                                            <label class="form-label">Current User Image</label>
-                                            <div class="row">
-                                                    <div class="col-3">
-                                                        {% if review.user_image %}
-                                                            <img src="{{ review.user_image.url }}" alt="Project Image" class="img-fluid">
-                                                        {% else %}
-                                                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ3Sz275KZaTeZyS-thzhD6U9VIkfO8c-WPA&s" alt="Default User Image">
-                                                        {% endif %}
-                                                    </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="mb-4">
-                                                <label class="form-label">Image</label>
-                                                {{form.user_image}}
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                             <div class="text-end">
