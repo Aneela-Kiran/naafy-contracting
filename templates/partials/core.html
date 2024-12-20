@@ -176,6 +176,67 @@
         }
     });
 </script>
+<!-- JavaScript for Carousel -->
+<script>
+    let currentIndex = 0;
+    const items = document.querySelectorAll('.testimonial-item');
+    const dots = document.querySelectorAll('.dot');
+    const carousel = document.getElementById('carousel');
+    let autoScrollInterval;
+
+    function showReview(index) {
+        items.forEach((item, i) => {
+            item.classList.toggle('active', i === index);
+        });
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+        currentIndex = index;
+    }
+
+    function goToReview(index) {
+        showReview(index);
+        resetAutoScroll(); // Reset the timer when user clicks on dots
+    }
+
+    function autoScroll() {
+        currentIndex = (currentIndex + 1) % items.length;
+        showReview(currentIndex);
+    }
+
+    function resetAutoScroll() {
+        clearInterval(autoScrollInterval); // Stop the timer
+        autoScrollInterval = setInterval(autoScroll, 5000); // Restart the timer
+    }
+
+    // Initialize carousel with auto-scroll
+    autoScrollInterval = setInterval(autoScroll, 5000);
+
+    // Add swipe/slide functionality
+    let startX = 0;
+    let endX = 0;
+
+    carousel.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+    });
+
+    carousel.addEventListener('touchend', (e) => {
+        endX = e.changedTouches[0].clientX;
+        if (startX > endX + 50) {
+            // Swipe left
+            currentIndex = (currentIndex + 1) % items.length;
+            showReview(currentIndex);
+        } else if (startX < endX - 50) {
+            // Swipe right
+            currentIndex = (currentIndex - 1 + items.length) % items.length;
+            showReview(currentIndex);
+        }
+        resetAutoScroll(); // Reset the timer on swipe
+    });
+
+    // Initialize carousel
+    showReview(0);
+</script>
 <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>

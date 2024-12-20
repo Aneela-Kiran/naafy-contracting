@@ -8,7 +8,7 @@ class EmailAdmin(admin.ModelAdmin):
     list_display = ["email", "sent_at"]
 
 class ReviewAdmin(admin.ModelAdmin):
-    list_display = ['user_name', 'review']
+    list_display = ['user_name', 'review', 'user_image']
 
 class ContactDetailsAdmin(admin.ModelAdmin):
     list_display = ["phone_no", "email", "office_location"]

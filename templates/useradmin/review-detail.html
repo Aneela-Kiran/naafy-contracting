@@ -62,6 +62,31 @@
                     <!-- col// -->
                 </div>
                 <!-- row // -->
+
+                <!-- Review Images-->
+                <div class="row">
+                    <div class="col-lg-6">
+                        <article class="icontext align-items-start">
+                            <span class="icon icon-sm rounded-circle bg-primary-light">
+                                <i class="text-primary material-icons md-image"></i>
+                            </span>
+                            <div class="text">
+                                <h6 class="mb-1">Review User Image</h6>
+                                <p class="mb-1">
+                                    {% if review.user_image %}
+                                        <img src="{{ review.user_image.url }}" alt="{{ service.name }}" width="200" height="150">
+                                    {% else %}
+                                        <p>No User Image</p>
+                                        <p><b>Displaying</b> Default User Image</p>
+                                        <br>
+                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ3Sz275KZaTeZyS-thzhD6U9VIkfO8c-WPA&s" alt="Default User Image">
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <!-- row // -->
             </div>
             <!-- card-body end// -->
         </div>

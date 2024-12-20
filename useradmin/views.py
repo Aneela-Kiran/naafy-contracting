@@ -247,7 +247,7 @@ def review_detail(request, id):
 
 def add_review(request):
     if request.method == "POST":
-        form = ReviewsForm(request.POST)
+        form = ReviewsForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             messages.success(request, "Successfully Created!")
@@ -261,7 +261,7 @@ def add_review(request):
 def edit_review(request, id):
     review = get_object_or_404(Reviews, id=id)
     if request.method == "POST":
-        form = ReviewsForm(request.POST, instance=review)
+        form = ReviewsForm(request.POST, request.FILES, instance=review)
         if form.is_valid():
             form.save()
             messages.success(request, "Review Updated Successfully!")

@@ -433,7 +433,7 @@ ol {
 }
 
 .hero__items {
-	height: 650px;
+	height: 700px;
 	padding: 0 40px;
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -2759,7 +2759,7 @@ ol {
 		line-height: 45px;
 	}
 	.hero__items {
-		height: 710px;
+		height: 900px;
 		display: -webkit-box;
 		display: -ms-flexbox;
 		display: flex;
@@ -2993,7 +2993,7 @@ ol {
 		line-height: 42px;
 	}
 	.hero__items {
-		height: 610px;
+		height: 900px;
 		display: -webkit-box;
 		display: -ms-flexbox;
 		display: flex;

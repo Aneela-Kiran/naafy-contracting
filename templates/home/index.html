@@ -4,51 +4,44 @@
     <!-- Hero Section Begin -->
     <section class="hero">
         <div class="hero__slider owl-carousel">
-            <div class="hero__items set-bg" data-setbg="{% static 'img/hero/hero-1.png' %}">
-                <div class="hero__text">
-                    <h2 class="text-white">Renovate. Refresh. Reveal.</h2>
-                    <a href="https://calendly.com/naafycontracting-info/30min" target="_blank" class="primary-btn text-white"><h4>Book Meeting</h4></a>
-                    <div class="hero__social">
-                        <a href="https://www.facebook.com/profile.php?id=61560731714423" target="blank"><i class="fa fa-facebook" style="font-size:2rem;"></i></a>
-                        <a href="https://www.tiktok.com/@burly.contracting" target="blank"><i class="fa-brands fa-tiktok" style="font-size:2rem;"></i></a>
-                        <a href="https://www.instagram.com/burly.contracting/?utm_source=ig_web_button_share_sheet" target="blank"><i class="fa fa-instagram" style="font-size:2rem;"></i></a>
-                        <a href="#" target="blank"><i class="fa fa-linkedin" style="font-size:2rem;"></i></a>
-                    </div>
-                </div>
-            </div>
             <div class="hero__items set-bg" data-setbg="{% static 'img/hero/hero-2.jpg' %}">
-                <div class="hero__text">
-                    <h2 class="text-white">Dream It. Build It. Love It</h2>
-                    <a href="https://calendly.com/naafycontracting-info/30min" target="_blank" class="primary-btn text-white"><h4>Book Meeting</h4></a>
-                    <div class="hero__social">
-                        <a href="https://www.facebook.com/profile.php?id=61560731714423" target="blank"><i style="font-size:2rem;" class="fa fa-facebook"></i></a>
-                        <a href="https://www.tiktok.com/@burly.contracting" target="blank"><i style="font-size:2rem;" class="fa-brands fa-tiktok"></i></a>
-                        <a href="https://www.instagram.com/burly.contracting/?utm_source=ig_web_button_share_sheet" target="blank"><i style="font-size:2rem;" class="fa fa-instagram"></i></a>
-                        <a href="#" target="blank"><i style="font-size:2rem;" class="fa fa-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="hero__items set-bg" data-setbg="{% static 'img/hero/hero-3.jpg' %}">
-                <div class="hero__text">
-                    <h2 class="text-white">Visualize. Realize. Relax.</h2>
-                    <a href="https://calendly.com/naafycontracting-info/30min" target="_blank" class="primary-btn text-white"><h4>Book Meeting</h4></a>
-                    <div class="hero__social">
-                        <a href="https://www.facebook.com/profile.php?id=61560731714423" target="blank"><i style="font-size:2rem;" class="fa fa-facebook"></i></a>
-                        <a href="https://www.tiktok.com/@burly.contracting" target="blank"><i style="font-size:2rem;" class="fa-brands fa-tiktok"></i></a>
-                        <a href="https://www.instagram.com/burly.contracting/?utm_source=ig_web_button_share_sheet" target="blank"><i style="font-size:2rem;" class="fa fa-instagram"></i></a>
-                        <a href="#" target="blank"><i style="font-size:2rem;" class="fa fa-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="hero__items set-bg" data-setbg="{% static 'img/hero/hero-4.jpg' %}">
-                <div class="hero__text">
-                    <h2 class="text-white">Envision. Create. Enjoy.</h2>
-                    <a href="https://calendly.com/naafycontracting-info/30min" target="_blank" class="primary-btn text-white"><h4>Book Meeting</h4></a>
-                    <div class="hero__social">
-                        <a href="https://www.facebook.com/profile.php?id=61560731714423" target="blank"><i style="font-size:2rem;" class="fa fa-facebook"></i></a>
-                        <a href="https://www.tiktok.com/@burly.contracting" target="blank"><i style="font-size:2rem;" class="fa-brands fa-tiktok"></i></a>
-                        <a href="https://www.instagram.com/burly.contracting/?utm_source=ig_web_button_share_sheet" target="blank"><i style="font-size:2rem;" class="fa fa-instagram"></i></a>
-                        <a href="#" target="blank"><i style="font-size:2rem;" class="fa fa-linkedin"></i></a>
+                <div class="container-fluid">
+                    <div class="row vh-50 align-items-center justify-content-between">
+                        <!-- Left Section -->
+                        <div class="col-lg-6 col-md-6 text-left text-light px-4">
+                            <h2 class="fw-bold mb-3 text-dark">Get a Quick Quote</h2>
+                            <h4 class="text-dark">RENOVATE-REFRESH_REVEAL.</h4>
+                        </div>
+            
+                        <!-- Right Section (Form) -->
+                        <div class="col-lg-5 col-md-6 col-sm-12 mx-auto mx-lg-0">
+                            <div class="p-4 bg-light text-white rounded">
+                                <h3 class="mb-3 text-dark">Contact Us</h3>
+                                <form method="POST" action="{% url 'contact:contact-form' %}">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                                            <input type="text" name="name" id="name" placeholder="Name" class="form-control" required>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                                            <input type="email" name="email" id="email" placeholder="Email" class="form-control" required>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                                            <input type="number" name="phone_no" id="phone_no" placeholder="Phone No" class="form-control" required>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                                            <input type="text" name="subject" id="subject" placeholder="Subject" class="form-control" required>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                                            <textarea name="message" id="message" placeholder="Message" class="form-control" rows="4" required></textarea>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+                                            <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -145,41 +138,36 @@
     <!-- Contact Section End -->
 
     <!-- Testimonial Section Begin -->
-    <section class="testimonial spad set-bg" data-setbg="{% static 'img/testimonial/testimonial-bg.jpg' %}">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="section-title">
-                        <h2>What our clients say</h2>
+    <section class="testimonial-section">
+        <div class="testimonial-heading">
+            <h2>What Your Clients Say</h2>
+        </div>
+        <div class="testimonial-carousel">
+            <!-- Carousel Container -->
+            <div id="carousel" class="carousel-container">
+                {% for r in reviews %}
+                <div class="testimonial-item {% if forloop.first %}active{% endif %}">
+                    <p class="testimonial-text">
+                        "{{ r.review }}"
+                    </p>
+                    <p class="testimonial-author">— {{ r.user_name }}</p>
+                    <div class="testimonial-image">
+                        {% if r.user_image and r.user_image.url %}
+                        <img src="{{ r.user_image.url }}" alt="User Image">
+                        {% else %}
+                        <img src="https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1095249842.jpg" alt="Default User Image">
+                        {% endif %}
                     </div>
                 </div>
+                {% endfor %}
             </div>
-            {% if reviews %}
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="testimonial__carousel">
-                            {% for r in reviews %}
-                                <div class="testimonial__item">
-                                    <div class="row d-flex justify-content-center">
-                                        <div class="col-xl-9 col-lg-10">
-                                            <p>"{{r.review}}"
-                                                — {{r.user_name}}.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
-            {% else %}
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <div class="justify-content-center">
-                            <h2>No Reviews Yet!!</h2>
-                        </div>
-                    </div>
-                </div>
-            {% endif %}
+    
+            <!-- Navigation Dots -->
+            <div class="carousel-dots">
+                {% for r in reviews %}
+                <div class="dot {% if forloop.first %}active{% endif %}" onclick="goToReview({{ forloop.counter0 }})"></div>
+                {% endfor %}
+            </div>
         </div>
     </section>
     <!-- Testimonial Section End -->

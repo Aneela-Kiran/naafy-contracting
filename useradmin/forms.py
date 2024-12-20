@@ -173,6 +173,14 @@ class ReviewsForm(forms.ModelForm):
         }
     )
 
+    user_image = forms.ImageField(
+        widget=forms.FileInput(attrs={"class": "form-control"}),
+        required=False,
+        error_messages={
+            'invalid': 'Please upload a valid image file (JPEG, PNG)',
+        }
+    )
+
     class Meta:
         model = Reviews
         fields = "__all__"

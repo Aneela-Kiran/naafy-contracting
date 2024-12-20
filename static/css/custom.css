@@ -30,25 +30,15 @@
 -------------------*/
 
 .project__item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin-bottom: 50px;
     text-align: center;
-    margin-bottom: 20px;
+    overflow: hidden; /* Ensures the image stays within the boundaries */
 }
 
 .project__item img {
     width: 100%;
-    aspect-ratio: 1 / 1; /* Maintains a square shape */
-    object-fit: cover; /* Ensures the image fills the container without stretching */
-    max-width: 200px; /* Limits the size of the image */
-    margin-bottom: 10px; /* Adds space below the image */
-}
-
-.project__item h4,
-.project__item p {
-    margin: 0;
-    padding: 5px;
+    margin-bottom: 26px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease; /* Smooth transition for hover effect */
 }
 
 .project__item img:hover {
@@ -122,7 +112,6 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 20px;
 }
 
 /* Navbar styling */
@@ -133,8 +122,6 @@
     z-index: 10;
     transition: background-color 0.3s;
     padding: 10px 0; /* Increased padding for taller navbar */
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 .header.scrolled {
     background-color: white;
@@ -149,8 +136,7 @@
     margin-right: 10px;
 }
 .header__title {
-    font-size: 28px;
-    font-weight: bold;
+    font-size: 20px;
     color: black;
 }
 .header__widget {
@@ -196,6 +182,167 @@
     color: white;
 }
 
+/* Testimonials */
+/* General Section Styling */
+.testimonial-section {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+}
+
+.testimonial-heading h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Carousel Container */
+.carousel-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* Testimonial Item */
+.testimonial-item {
+    display: none;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-item.active {
+    display: block;
+}
+
+.testimonial-text {
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.testimonial-author {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+}
+
+.testimonial-image {
+    width: 80px;
+    height: 80px;
+    margin: 10px auto;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #ddd;
+}
+
+.testimonial-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Navigation Arrows */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    font-weight: bold;
+    color: #555;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px 10px;
+    border-radius: 50%;
+    user-select: none;
+}
+
+.carousel-nav.prev {
+    left: -40px;
+}
+
+.carousel-nav.next {
+    right: -40px;
+}
+
+.carousel-nav:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Navigation Dots */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #ddd;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .testimonial-text {
+        font-size: 16px;
+    }
+
+    .testimonial-author {
+        font-size: 14px;
+    }
+
+    .carousel-nav.prev {
+        left: -30px;
+    }
+
+    .carousel-nav.next {
+        right: -30px;
+    }
+
+    .dot {
+        width: 12px;
+        height: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonial-heading h2 {
+        font-size: 24px;
+    }
+
+    .testimonial-text {
+        font-size: 14px;
+    }
+
+    .testimonial-author {
+        font-size: 12px;
+    }
+
+    .carousel-nav {
+        font-size: 20px;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+
 /* Responsive styles for mobile/tablet */
 @media (max-width: 991px) {
     /* Hide desktop menu and widget on small screens */
@@ -236,47 +383,6 @@
     }
 }
 
-@media (max-width: 576px) {
-    .header__title {
-        font-size: 14px;
-    }
-}
-
-/* Responsive styles for mobile/tablet */
-@media (max-width: 991px) {
-    /* Hide desktop menu and widget on small screens */
-    .header__menu.desktop-menu,
-    .header__widget {
-        display: none;
-    }
-
-    /* Display the logo and mobile menu toggle button */
-    .header__logo {
-        display: inline-block;
-    }
-
-    /* Make canvas open button black for visibility on mobile */
-    .canvas__open {
-        display: inline-block;
-        position: absolute;
-        right: 15px;
-        z-index: 20;
-        font-size: 24px;
-        color: black; /* Set button color to black */
-        cursor: pointer;
-    }
-
-    /* Hide mobile menu by default */
-    .header__menu.mobile-menu {
-        display: none;
-    }
-
-    /* Show mobile menu when activated */
-    .header.mobile-menu-active .header__menu.mobile-menu {
-        display: block;
-    }
-}
-
 /* Ensure responsive centering */
 @media (max-width: 768px) { /* Mobile devices */
     .stats-container {
@@ -298,11 +404,21 @@
         color: #ADD8E6; /* Light blue as in your image */
     }
 
+    .header__title {
+        font-size: 16px;
+    }
+
     .stats-item span.label {
         font-size: 1rem;
         text-transform: uppercase;
         letter-spacing: 2px;
         color: black; /* Adjust color if needed */
+    }
+}
+
+@media (max-width: 576px) {
+    .header__title {
+        font-size: 14px;
     }
 }
 

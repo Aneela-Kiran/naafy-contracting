@@ -5,7 +5,7 @@
                 <div class="content-header">
                     <div>
                         <h2 class="content-title card-title">Reviews List</h2>
-                        <p>What Our Client Say?</p>
+                        <p>Following are the Reviews</p>
                         <div class="messagesTime">
                             {% if messages %}
                                 {% for message in messages %}
@@ -39,15 +39,23 @@
                                             <th class="align-middle" scope="col">ID</th>
                                             <th class="align-middle" scope="col">User Name</th>
                                             <th class="align-middle" scope="col">Review</th>
+                                            <th class="align-middle" scope="col">User Image</th>
                                             <th class="align-middle" scope="col">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {% for r in reviews %}
                                             <tr>
-                                                <td><a href="{% url 'useradmin:review-detail' r.id %}" class="fw-bold">#{{r.id}}</a></td>
+                                                <td><a href="{% url "useradmin:review-detail" r.id %}" class="fw-bold">#{{r.id}}</a></td>
                                                 <td>{{r.user_name}}</td>
                                                 <td>{{r.review|truncatechars:100}}</td>
+                                                <td>
+                                                    {% if r.user_image %}
+                                                        <img src="{{ r.user_image.url }}" style="width:50px; height:30px" alt="User Image">
+                                                    {% else %}
+                                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ3Sz275KZaTeZyS-thzhD6U9VIkfO8c-WPA&s" style="width:50px; height:30px" alt="Default User Image">
+                                                    {% endif %}
+                                                </td>
                                                 <td>
                                                     <div>
                                                         <a href="{% url "useradmin:edit-review" r.id %}" class="btn btn-sm d-inline"><i class="fas fa-pen"></i></a>

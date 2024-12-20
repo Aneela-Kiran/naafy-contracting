@@ -23,7 +23,8 @@ class Email(models.Model):
 class Reviews(models.Model):
     user_name = models.CharField(unique=True, max_length=250)
     review = models.TextField()
-
+    user_image = models.ImageField(upload_to="reviews/", null=True, blank=True)
+    
     def __str__(self):
         return self.user_name
 
