@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from .models import Contact
-from .models import Reviews, ContactDetails
+from .models import ContactDetails
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_protect
 from django.conf import settings
@@ -48,7 +48,7 @@ def contact_form(request):
                 print(f"Error sending email: {e}")
                 messages.error(request, "There was an error sending your message. Please try again later.")
 
-            return redirect("contact:contactus")
+            return redirect(request.META.get('HTTP_REFERER', 'contact:contactus'))
         else:
             messages.warning(request, "Please fill in all required fields.")
     return render(request, "contact/contact-us.html")
