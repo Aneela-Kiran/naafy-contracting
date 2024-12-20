@@ -120,33 +120,6 @@
                     </div>
                 </div>
             </div>
-            <hr>
-            <div class="row">
-                <div class="col-lg-5">
-                    <div class="contact__form__text">
-                        <div class="section-title">
-                            <h2>Client Reviews</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                {% for r in reviews %}
-                    <div class="blog__details__author">
-                        <div class="blog__details__author__pic">
-                            {% if r.user_image %}
-                                <img style="border-radius:50%; height:100%" src="{{r.user_image.url}}" alt="">
-                            {% else %}
-                                <img src="https://t4.ftcdn.net/jpg/05/49/98/39/360_F_549983970_bRCkYfk0P6PP5fKbMhZMIb07mCJ6esXL.jpg" alt="User Image">                        
-                            {% endif %}
-                        </div>
-                        <div class="blog__details__author__text">
-                            <h5>{{r.user_name}}</h5>
-                            <p>{{r.review}}</p>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
         </div>
     </section>
     <!-- Contact Section End -->
