@@ -197,6 +197,17 @@
     color: white;
 }
 
+.contact-widget {
+    margin-top: 270px; /* Default margin for desktop */
+}
+
+/* Media query for tablets and mobile devices */
+@media (max-width: 991.98px) { /* For screens smaller than 992px */
+    .contact-widget {
+        margin-top: 50px; /* Apply mt-5 equivalent for smaller screens */
+    }
+}
+
 /* Testimonials */
 /* General Section Styling */
 .testimonial-section {
