@@ -150,6 +150,7 @@
 }
 .header__title {
     font-size: 28px;
+    line-height: 25px;
     font-weight: bold;
     color: black;
 }

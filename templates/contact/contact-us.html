@@ -74,16 +74,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="row">
-                        <div class="col-lg-6 mt-5"> 
-                            <div class="contact__text">
-                                <div class="section-title">
-                                    <h2>Contact Details</h2>
-                                </div>
-                                <p>As you might expect of a company that began as a high-end interiors contractor, we pay strict
-                                attention.</p>
-                            </div>
-                        </div>
+                    <div class="row mt-5">
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <div class="contact__widget__item">
                                 <div class="contact__widget__item__icon">
@@ -137,4 +128,38 @@
             </div>
         </div>
     </section>
+    <!-- Testimonial Section Begin -->
+    <section class="testimonial-section">
+        <div class="testimonial-heading">
+            <h2>Reviews From Google</h2>
+        </div>
+        <div class="testimonial-carousel">
+            <!-- Carousel Container -->
+            <div id="carousel" class="carousel-container">
+                {% for r in reviews %}
+                <div class="testimonial-item {% if forloop.first %}active{% endif %}">
+                    <p class="testimonial-text">
+                        "{{ r.review }}"
+                    </p>
+                    <p class="testimonial-author">— {{ r.user_name }}</p>
+                    <div class="testimonial-image">
+                        {% if r.user_image and r.user_image.url %}
+                            <img src="{{ r.user_image.url }}" alt="User Image">
+                        {% else %}
+                            <img src="https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1095249842.jpg" alt="Default User Image">
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+    
+            <!-- Navigation Dots -->
+            <div class="carousel-dots">
+                {% for r in reviews %}
+                <div class="dot {% if forloop.first %}active{% endif %}" onclick="goToReview({{ forloop.counter0 }})"></div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- Testimonial Section End -->
 {% endblock content %}

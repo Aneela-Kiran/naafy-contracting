@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail
-from .models import Contact
+from .models import Contact, Reviews
 from .models import ContactDetails
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_protect
@@ -10,8 +10,10 @@ from django.conf import settings
 # Create your views here.
 def contact_us(request):
     contact_details = ContactDetails.objects.all().first()
+    reviews = Reviews.objects.all()
     context = {
         "contact_details" : contact_details,
+        "reviews" : reviews
     }
     return render(request, "contact/contact-us.html", context)
 
