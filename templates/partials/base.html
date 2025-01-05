@@ -4,11 +4,38 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Staging Template">
+    <meta name="description" content="We are the architects of dream spaces, where every brick,and every detail is a testament to our passion for transforming homes into havens.">
     <meta name="keywords" content="Staging, unica, creative, html">
+    <meta property="og:title" content="Naafy Contracting">
+    <meta property="og:description" content="We are the architects of dream spaces, where every brick,and every detail is a testament to our passion for transforming homes into havens.">
+    <meta property="og:image" content="https://naafycontracting.ca/static/img/logo.png">
+    <meta property="og:url" content="https://naafycontracting.ca/">
+    <meta property="og:type" content="website">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Naafy | Contracting</title>
+    <title>Naafy Contracting</title>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org/", 
+  "@type": "BreadcrumbList", 
+  "itemListElement": [{
+    "@type": "ListItem", 
+    "position": 1, 
+    "name": "About us",
+    "item": "https://naafycontracting.ca/about-us/"  
+  },{
+    "@type": "ListItem", 
+    "position": 2, 
+    "name": "Services",
+    "item": "https://naafycontracting.ca/services/"  
+  },{
+    "@type": "ListItem", 
+    "position": 3, 
+    "name": "Contact us",
+    "item": "https://naafycontracting.ca/contact-us/"  
+  }]
+}
+</script>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
@@ -28,6 +55,7 @@
     <link rel="stylesheet" href="{% static 'css/slick.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/custom.css' %}" type="text/css">
+    <link rel="canonical" href="https://naafycontracting.ca/" />
 </head>
 
 <body>
@@ -36,7 +64,7 @@
     <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__logo">
-            <a href="{% url "home:home" %}"><img src="{% static 'img/logo.png' %}" width="100px" alt=""></a>
+            <a href="{% url "home:home" %}"><img src="{% static 'img/logo.png' %}" width="100px" alt="Naafy Contracting logo"></a>
         </div>
         <div id="mobile-menu-wrap"></div>
         <div class="offcanvas__widget">
@@ -53,7 +81,7 @@
                 <div class="col-lg-3">
                     <div class="header__logo">
                         <a href="{% url 'home:home' %}">
-                            <img src="{% static 'img/logo.png' %}" alt="Logo">
+                            <img src="{% static 'img/logo.png' %}" alt="Naafy contracting Logo">
                         </a>
                         <span class="header__title">Naafy Contracting</span>
                     </div>
@@ -130,7 +158,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 stats-container">
                     <div class="footer__about">
                         <div class="footer__logo">
-                            <a href="{% url "home:home" %}"><img src="{% static 'img/logo.png' %}" width="80px" alt=""></a>
+                            <a href="{% url "home:home" %}"><img src="{% static 'img/logo.png' %}" width="80px" alt="Naafy contracting logo"></a>
                         </div>
                         <div class="footer__social">
                             <a href="https://www.facebook.com/profile.php?id=61560731714423" target="_blank"><i class="fa fa-facebook" style="font-size: 2rem;"></i></a>

@@ -23,7 +23,7 @@
                     <div class="blog__details__title">
                         <h2>{{blogs.title}}</h2>
                         <div class="hover-effect">
-                            <img src="{{blogs.image.url}}" alt="">
+                            <img src="{{blogs.image.url}}" alt="{{blogs.image.url}}">
                         </div>
                         <p>{{blogs.content|linebreaksbr}}</p>
                     </div>
@@ -34,7 +34,7 @@
                         <div class="row">
                             {% for image in blog_images %}
                             <div class="col-lg-4 col-md-4 col-sm-4 hover-effect">
-                                <img style="height:80%; width:80%;" src="{{image.image.url}}" alt="">
+                                <img style="height:80%; width:80%;" src="{{image.image.url}}" alt="{{image.image.url}}">
                             </div>
                             {% endfor %}
                         </div>
@@ -45,7 +45,7 @@
                                 {% if previous_blog %}
                                     <a href="{% url 'blog:blog-details' previous_blog.slug %}" class="blog__details__btns__item">
                                         <div class="blog__details__btns__item__pic">
-                                            <img style="height:100px; width:100px;" src="{{previous_blog.image.url}}" alt="">
+                                            <img style="height:100px; width:100px;" src="{{previous_blog.image.url}}" alt="{{previous_blog.image.url}}">
                                         </div>
                                         <div class="blog__details__btns__item__text">
                                             <h6><span class="arrow_left"></span> Previous Post</h6>
@@ -55,7 +55,7 @@
                                 {% else %}
                                     <div class="blog__details__btns__item">
                                         <div class="blog__details__btns__item__pic">
-                                            <img src="{% static 'img/blog/details/prev.jpg' %}" alt="">
+                                            <img src="{% static 'img/blog/details/prev.jpg' %}" alt="{% static 'img/blog/details/prev.jpg' %}">
                                         </div>
                                         <div class="blog__details__btns__item__text">
                                             <h6>Previous Post</h6>
@@ -68,7 +68,7 @@
                                 {% if next_blog %}
                                     <a href="{% url 'blog:blog-details' next_blog.slug %}" class="blog__details__btns__item blog__details__btns__item--next">
                                         <div class="blog__details__btns__item__pic">
-                                            <img style="height:100px; width:100px;" src="{{next_blog.image.url}}" alt="">
+                                            <img style="height:100px; width:100px;" src="{{next_blog.image.url}}" alt="{{next_blog.image.url}}">
                                         </div>
                                         <div class="blog__details__btns__item__text">
                                             <h6>Next Post <span class="arrow_right"></span></h6>
@@ -78,7 +78,7 @@
                                 {% else %}
                                     <div class="blog__details__btns__item blog__details__btns__item--next">
                                         <div class="blog__details__btns__item__pic">
-                                            <img src="{% static 'img/blog/details/next.jpg' %}" alt="">
+                                            <img src="{% static 'img/blog/details/next.jpg' %}" alt="{% static 'img/blog/details/next.jpg' %}">
                                         </div>
                                         <div class="blog__details__btns__item__text">
                                             <h6>Next Post</h6>
@@ -105,7 +105,7 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <textarea name="reply" id="reply" placeholder="Your Comment"></textarea>
-                                    <button type="submit" class="site-btn">Submit Now</button>
+                                    <button type="submit" class="site-btn">Post Comment</button>
                                 </div>
                             </div>
                         </form>
