@@ -28,7 +28,7 @@
                                 <div class="blog__item">
                                     <h2>{{b.title}}</h2>
                                     <div class="hover-effect">
-                                        <a href="{% url 'blog:blog-details' b.slug %}"><img src="{{b.image.url}}" alt="{{b.image.url}}"></a>
+                                        <a href="{% url 'blog:blog-details' b.slug %}"><img src="{{b.image.url}}" alt="{{b.title}}"></a>
                                     </div>
                                     <div class="blog__item__text">
                                         <p>{{b.content|truncatewords:30}}</p>
