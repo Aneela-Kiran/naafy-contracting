@@ -94,7 +94,7 @@
 
 /* Hover effect with background transition and pop-up */
 .button-hover-effect:hover {
-    background-color: #6F9ACB;; /* Hover background color */
+    background-color: #6F9ACB; /* Hover background color */
     transform: translateY(-5px); /* Pop-up effect */
 }
 
@@ -122,7 +122,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 20px;
+    padding: 8px 20px;
 }
 
 /* Navbar styling */
@@ -198,13 +198,13 @@
 }
 
 .contact-widget {
-    margin-top: 270px; /* Default margin for desktop */
+    margin-top: 48px; /* Default margin for desktop */
 }
 
 /* Media query for tablets and mobile devices */
 @media (max-width: 991.98px) { /* For screens smaller than 992px */
     .contact-widget {
-        margin-top: 50px; /* Apply mt-5 equivalent for smaller screens */
+        margin-top: 48px; /* Apply mt-5 equivalent for smaller screens */
     }
 }
 

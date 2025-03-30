@@ -35,10 +35,11 @@ h3,
 h4,
 h5,
 h6 {
+	font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	margin: 0;
 	color: #111111;
 	font-weight: 400;
-	font-family: "Aldrich", sans-serif;
+	font-family: "Poppins", sans-serif;
 }
 
 h1 {
@@ -405,7 +406,7 @@ ol {
 
 .header__widget span {
 	font-size: 14px;
-	font-family: "Aldrich", sans-serif;
+	font-family: "Poppins", sans-serif;
 	color: #111111;
 	display: block;
 	margin-bottom: 10px;
@@ -1769,7 +1770,7 @@ ol {
 	right: 50px;
 	bottom: 26px;
 	content: "“";
-	font-family: "Aldrich", sans-serif;
+	font-family: "Poppins", sans-serif;
 	font-size: 120px;
 	color: #ffffff;
 	opacity: 0.5;
@@ -1779,7 +1780,7 @@ ol {
 .blog__item__quote p {
 	color: #ffffff;
 	font-size: 20px;
-	font-family: "Aldrich", sans-serif;
+	font-family: "Poppins", sans-serif;
 	line-height: 32px;
 	text-transform: uppercase;
 }
@@ -2459,7 +2460,7 @@ ol {
 	display: none;
 }
 
-.contact__widget__item:after {
+/* .contact__widget__item:after {
 	position: absolute;
 	right: 50px;
 	top: 0px;
@@ -2467,7 +2468,7 @@ ol {
 	height: 50px;
 	background: #e1e1e1;
 	content: "";
-}
+} */
 
 .contact__widget__item__icon {
 	float: left;
@@ -2734,7 +2735,7 @@ ol {
 	}
 	.offcanvas__widget span {
 		font-size: 14px;
-		font-family: "Aldrich", sans-serif;
+		font-family: "Poppins", sans-serif;
 		color: #b7b7b7;
 		display: block;
 		margin-bottom: 10px;
@@ -2868,7 +2869,7 @@ ol {
 	}
 	.offcanvas__widget span {
 		font-size: 14px;
-		font-family: "Aldrich", sans-serif;
+		font-family: "Poppins", sans-serif;
 		color: #b7b7b7;
 		display: block;
 		margin-bottom: 10px;
