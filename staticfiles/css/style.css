@@ -38,7 +38,7 @@ h6 {
 	margin: 0;
 	color: #111111;
 	font-weight: 400;
-	font-family: "Aldrich", sans-serif;
+	font-family: "Poppins", sans-serif;
 }
 
 h1 {
@@ -405,7 +405,7 @@ ol {
 
 .header__widget span {
 	font-size: 14px;
-	font-family: "Aldrich", sans-serif;
+	font-family: "Poppins", sans-serif;
 	color: #111111;
 	display: block;
 	margin-bottom: 10px;
@@ -1769,7 +1769,7 @@ ol {
 	right: 50px;
 	bottom: 26px;
 	content: "“";
-	font-family: "Aldrich", sans-serif;
+	font-family: "Poppins", sans-serif;
 	font-size: 120px;
 	color: #ffffff;
 	opacity: 0.5;
@@ -1779,7 +1779,7 @@ ol {
 .blog__item__quote p {
 	color: #ffffff;
 	font-size: 20px;
-	font-family: "Aldrich", sans-serif;
+	font-family: "Poppins", sans-serif;
 	line-height: 32px;
 	text-transform: uppercase;
 }
@@ -2734,7 +2734,7 @@ ol {
 	}
 	.offcanvas__widget span {
 		font-size: 14px;
-		font-family: "Aldrich", sans-serif;
+		font-family: "Poppins", sans-serif;
 		color: #b7b7b7;
 		display: block;
 		margin-bottom: 10px;
@@ -2868,7 +2868,7 @@ ol {
 	}
 	.offcanvas__widget span {
 		font-size: 14px;
-		font-family: "Aldrich", sans-serif;
+		font-family: "Poppins", sans-serif;
 		color: #b7b7b7;
 		display: block;
 		margin-bottom: 10px;
